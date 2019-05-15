@@ -5,7 +5,9 @@ import store from './store'
 import { HTTP } from './util/axios';
 Vue.prototype.$http = HTTP
 Vue.config.productionTip = false
-
+import VueAwesomeSwiper from 'vue-awesome-swiper';
+import 'swiper/dist/css/swiper.css'
+Vue.use(VueAwesomeSwiper) 
 new Vue({
   router,
   store,
