@@ -1,3 +1,5 @@
+
+ import vuescroll from 'vuescroll';
 export default {
 
     name: "header",
@@ -29,10 +31,21 @@ export default {
                 centeredSlides: true,
                 paginationClickable: true,
                 spaceBetween: 30,
-            }
+            },
+            ops:{
+                vuescroll: {},
+                scrollPanel: {},
+                rail: {},
+                bar: {
+                    background:"#666",
+                }
+              }
         }
        
     },
+    components: {
+        vuescroll
+      },
     computed: {  
   
         swiper() {  

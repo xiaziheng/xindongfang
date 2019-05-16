@@ -1,15 +1,6 @@
 <template>
   <header>
-    <nav>
-      <img class="nav-logo" src alt>
-      <ul>
-        <li>首页</li>
-        <li>产品介绍</li>
-        <li>业务介绍</li>
-        <li>关于我们</li>
-        <li>联系我们</li>
-      </ul>
-    </nav>
+    
     <div class="bannerLb">
       <div class="bannerTop">
         <swiper :options="swiperOption" ref="mySwiper">
@@ -41,6 +32,17 @@
         </swiper>
       </div>
     </div>
+    <vuescroll :ops="ops">
+    <nav>
+      <img class="nav-logo" src alt>
+      <ul>
+        <li>首页</li>
+        <li>产品介绍</li>
+        <li>业务介绍</li>
+        <li>关于我们</li>
+        <li>联系我们</li>
+      </ul>
+    </nav>
     <div class="containerBox">
          <div class="container">
       <div class="conatinerTlt">产品介绍</div>
@@ -228,7 +230,7 @@
       </ul>
     </div>
     </div>
-   
+       </vuescroll>
   </header>
 </template>
 
@@ -239,7 +241,7 @@
 <style scoped lang="less">
 header {
   width: 100%;
-  height: auto;
+  height: 100%;
   overflow: hidden;
   position: relative;
   .containerBox{
@@ -247,6 +249,7 @@ header {
       background: #fff;
       width: 100%;
       position: relative;
+      height: 100%;
       z-index: 10;
   }
   .container {
@@ -480,7 +483,7 @@ header {
   }
   nav {
     position: absolute;
-    top: 0;
+    top: -560px;
     z-index: 15;
     width: 100%;
     ul {
@@ -552,4 +555,5 @@ header {
     }
   }
 }
+
 </style>

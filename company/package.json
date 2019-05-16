@@ -13,6 +13,7 @@
     "vue": "^2.6.10",
     "vue-awesome-swiper": "^3.1.3",
     "vue-router": "^3.0.3",
+    "vuescroll": "^4.12.2",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

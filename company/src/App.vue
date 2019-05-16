@@ -9,6 +9,12 @@
   margin: 0;
   padding: 0;
 }
+.__rail-is-vertical{
+    z-index: 100!important;
+}
+#app,html,body{
+  height: 100%;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
