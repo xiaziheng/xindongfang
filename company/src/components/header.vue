@@ -1,6 +1,18 @@
 <template>
   <header>
     
+    
+    <vuescroll :ops="ops" ref="vs">
+    <nav>
+      <img class="nav-logo" src alt>
+      <ul>
+        <li @click="goScroll('home')">首页</li>
+        <li  @click="goScroll('product')">产品介绍</li>
+        <li  @click="goScroll('professional')">业务介绍</li>
+        <li  @click="goScroll('about')">关于我们</li>
+        <li @click="goScroll('contact')">联系我们</li>
+      </ul>
+    </nav>
     <div class="bannerLb">
       <div class="bannerTop">
         <swiper :options="swiperOption" ref="mySwiper">
@@ -32,17 +44,6 @@
         </swiper>
       </div>
     </div>
-    <vuescroll :ops="ops" ref="vs">
-    <nav>
-      <img class="nav-logo" src alt>
-      <ul>
-        <li @click="goScroll('home')">首页</li>
-        <li  @click="goScroll('product')">产品介绍</li>
-        <li  @click="goScroll('professional')">业务介绍</li>
-        <li  @click="goScroll('about')">关于我们</li>
-        <li @click="goScroll('contact')">联系我们</li>
-      </ul>
-    </nav>
     <div class="containerBox">
          <div class="container">
       <div class="conatinerTlt" id="product" >产品介绍</div>
