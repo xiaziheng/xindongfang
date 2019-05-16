@@ -54,5 +54,25 @@ export default {
     },
     mounted(){
        
+    },
+    methods:{
+        goScroll(id){
+            var docHeight;
+            if(id == 'home'){
+                docHeight =0;
+            }else{
+                docHeight = document.getElementById(id).offsetTop+560 ;
+            }
+          
+            
+            console.log(docHeight)
+            this.$refs['vs'].scrollTo(
+                {
+                  y: docHeight
+                },
+                300,
+                'easeInQuad'
+              );
+        }
     }
 };

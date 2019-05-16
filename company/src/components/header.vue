@@ -32,20 +32,20 @@
         </swiper>
       </div>
     </div>
-    <vuescroll :ops="ops">
+    <vuescroll :ops="ops" ref="vs">
     <nav>
       <img class="nav-logo" src alt>
       <ul>
-        <li>首页</li>
-        <li>产品介绍</li>
-        <li>业务介绍</li>
-        <li>关于我们</li>
-        <li>联系我们</li>
+        <li @click="goScroll('home')">首页</li>
+        <li  @click="goScroll('product')">产品介绍</li>
+        <li  @click="goScroll('professional')">业务介绍</li>
+        <li  @click="goScroll('about')">关于我们</li>
+        <li @click="goScroll('contact')">联系我们</li>
       </ul>
     </nav>
     <div class="containerBox">
          <div class="container">
-      <div class="conatinerTlt">产品介绍</div>
+      <div class="conatinerTlt" id="product" >产品介绍</div>
       <ul class="containerList">
         <li>
           <div class="fl">
@@ -117,7 +117,7 @@
           </div>
         </li>
       </ul>
-      <div class="conatinerTlt">业务介绍</div>
+      <div class="conatinerTlt" id="professional">业务介绍</div>
       <ul class="containerList2">
         <li>
           <span>业务一</span>
@@ -176,7 +176,7 @@
           </div>
         </li>
       </ul>
-      <div class="conatinerTlt">关于我们</div>
+      <div class="conatinerTlt" id="about">关于我们</div>
       <ul class="containerList3">
         <li>
           <img src alt>
@@ -209,7 +209,7 @@
           <p>阐述二</p>
         </li>
       </ul>
-      <div class="conatinerTlt">联系我们</div>
+      <div class="conatinerTlt" id="contact">联系我们</div>
       <ul class="containerList4">
         <li>
           <img src alt>
