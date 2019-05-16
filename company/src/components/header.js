@@ -1,5 +1,6 @@
 
  import vuescroll from 'vuescroll';
+ import MapNote from './map'
 export default {
 
     name: "header",
@@ -44,7 +45,8 @@ export default {
        
     },
     components: {
-        vuescroll
+        vuescroll,
+        MapNote
       },
     computed: {  
   
