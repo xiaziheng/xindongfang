@@ -562,7 +562,7 @@ header {
     }
   }
   .bannerLb {
-    width: 960px;
+    width: 1000px;
     // height: 450px;
     // overflow: hidden;
     margin: 0 auto;
@@ -579,6 +579,7 @@ header {
         // background:blue;
         display: block;
         float: left;
+        border-radius: 8px;
       }
     }
     .bannerBtn {
