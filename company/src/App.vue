@@ -8,6 +8,7 @@
 *{
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 .__rail-is-vertical{
     z-index: 100!important;

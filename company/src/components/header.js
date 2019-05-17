@@ -1,6 +1,7 @@
 
  import vuescroll from 'vuescroll';
  import MapNote from './map'
+ import silidefix from './silidefix'
 export default {
 
     name: "header",
@@ -46,7 +47,8 @@ export default {
     },
     components: {
         vuescroll,
-        MapNote
+        MapNote,
+        silidefix
       },
     computed: {  
   
@@ -58,12 +60,16 @@ export default {
        
     },
     methods:{
+        goTop(data){
+            console.log(data)
+            this.goScroll('home')
+        },
         goScroll(id){
             var docHeight;
             if(id == 'home'){
                 docHeight =0;
             }else{
-                docHeight = document.getElementById(id).offsetTop+560 ;
+                docHeight = document.getElementById(id).offsetTop  //+560 ;
             }
           
             
