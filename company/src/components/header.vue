@@ -389,6 +389,7 @@ header {
           display: block;
           //   margin: 15px 0;
           background: #fff;
+          transition: .7s all ease;
         }
 
         .hover_overlay {
@@ -419,6 +420,9 @@ header {
           transition: all 0.7s;
         }
         &:hover {
+            //   .imgBox{
+        //       transform: scale(1.5);
+        //   }
           .hover_overlay {
             transform: perspective(900px) rotateX(0deg);
             transform-style: preserve-3d;
@@ -429,6 +433,7 @@ header {
             visibility: visible;
             opacity: 1;
           }
+        
         }
       }
       li:nth-child(odd) {
@@ -487,6 +492,7 @@ header {
               width: 200px;
               height: 200px;
               background: #fff;
+              border-radius: 4px;
             }
           }
         }
@@ -540,8 +546,9 @@ header {
     ul {
       list-style: none;
       display: flex;
-      width: 900px;
-      margin: 0 auto;
+    //   width: 900px;
+    //   margin: 0 auto;
+    margin-left: 170px;
       height: 80px;
       overflow: hidden;
       li {

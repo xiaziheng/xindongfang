@@ -4,7 +4,7 @@
     <li>
       <img src="../assets/ico1_23.png" alt>
       <div class="mask">
-          13133333333
+          客服电话：13133333333
       </div>
     </li>
     <li>
@@ -45,7 +45,7 @@ export default {
     position: fixed;
     z-index: 9999;
     bottom: 155px;
-    right: 70px;
+    right: 30px;
     width: 50px;
     cursor: pointer;
     li{
@@ -71,8 +71,9 @@ export default {
     .mask{
         position: absolute;
         right: 0;
+        line-height: 30px;
         top: 0;
-        background:  rgba(25,151,232);
+        background:  rgba(25,151,232,0.5);
         opacity: 0;
         padding: 10px;
         border-radius: 8px;
