@@ -1,13 +1,10 @@
 import axios from 'axios'
 const envConfig = {
-  // production: 'https://ditech.didichuxing.com',
-  production: 'http://10.95.97.92',
-  stage: 'http://[stage]/mall',
-  development: 'http://localhost:3011'
+  production: 'http://106.12.9.12',
 }
-export const baseURL = envConfig[process.env.NODE_ENV || 'development']
+export const baseURL = envConfig.production
 let HTTP = axios.create({
-//   baseURL,
+  // baseURL,
   timeout: 30000,
 //   headers: {
   

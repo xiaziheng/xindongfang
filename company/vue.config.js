@@ -29,11 +29,11 @@ module.exports = {
     disableHostCheck: true,
     port: 8081,
     proxy: {
-      '/v3.php/api': {
-        target: 'https://docer.wps.cn ',
+      '/api': {
+        target: 'http://106.12.9.12',
         changeOrigin: true,
         pathRewrite: {
-          '^/v3.php/api': '/v3.php/api'
+          '^/api': '/api'
         }
       }
     }

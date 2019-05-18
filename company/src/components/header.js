@@ -1,10 +1,11 @@
 
  import vuescroll from 'vuescroll';
  import MapNote from './map'
- import silidefix from './silidefix'
+ import silidefix from './silidefix';
+ import footerPage from './footer'
 export default {
 
-    name: "header",
+    name: "headerPag",
     data() {
         return {
             swiperOption: {
@@ -12,6 +13,10 @@ export default {
                 //是一个组件自有属性，如果notNextTick设置为true，组件则不会通过NextTick来实例化swiper，也就意味着你可以在第一时间获取到swiper对象，假如你需要刚加载遍使用获取swiper对象来做什么事，那么这个属性一定要是true  
                 notNextTick: true,
                 effect: 'cube',
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                  },
                 cube: {
                     slideShadows: true,
                     shadow: true,
@@ -28,7 +33,6 @@ export default {
                 autoplay: true,
                 loop: true,
                 speed:1000,
-                pagination: '.swiper-pagination',
                 slidesPerView: 'auto',
                 centeredSlides: true,
                 paginationClickable: true,
@@ -41,14 +45,21 @@ export default {
                 bar: {
                     background:"#666",
                 }
-              }
+              },
+              company:{},
+              customer:[],
+              lunbo:[],
+              product:[],
+              service:[],
         }
+
        
     },
     components: {
         vuescroll,
         MapNote,
-        silidefix
+        silidefix,
+        footerPage
       },
     computed: {  
   
@@ -56,12 +67,14 @@ export default {
           return this.$refs.mySwiper.swiper;  
         }  
     },
+    created(){
+        this.getList();
+    },
     mounted(){
        
     },
     methods:{
-        goTop(data){
-            console.log(data)
+        goTop(){
             this.goScroll('home')
         },
         goScroll(id){
@@ -72,8 +85,6 @@ export default {
                 docHeight = document.getElementById(id).offsetTop  //+560 ;
             }
           
-            
-            console.log(docHeight)
             this.$refs['vs'].scrollTo(
                 {
                   y: docHeight
@@ -81,6 +92,17 @@ export default {
                 300,
                 'easeInQuad'
               );
-        }
+        },
+       getList(){
+           this.$http.get('/api/home1/index').then((res)=>{
+           
+            let data = res.data;
+            this.company = data.company[0];
+            this.customer=data.customer;
+            this.lunbo= data.lunbo;
+            this.product=data.product;
+            this.service=data.service;
+           })
+       }
     }
 };

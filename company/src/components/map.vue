@@ -9,9 +9,11 @@
       return {
       }
     },
+    props:['mapadd'],
     mounted() {
+      var mapadr=this.mapadd.split(',');
       var map = new BMap.Map('container');
-      var point = new BMap.Point(116.2928970000, 40.0562200000);
+      var point = new BMap.Point(mapadr[0], mapadr[1]);
       map.centerAndZoom(point, 15);
       // map.addControl(new BMap.MapTypeControl(1));
       map.enableScrollWheelZoom(true);

@@ -4,7 +4,7 @@
     <li>
       <img src="../assets/ico1_23.png" alt>
       <div class="mask">
-          客服电话：13133333333
+          客服电话：{{servephone}}
       </div>
     </li>
     <li>
@@ -14,7 +14,7 @@
               微信公众号
           </div>
           <div class="qrcode">
-              <img src="http://www.mingsen.com.cn/images/%E6%98%8E%E6%A3%AE%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7.png" alt="">
+              <img :src="iphead+servewx.Path" alt="">
           </div>
       </div>
     </li>
@@ -36,7 +36,8 @@ export default {
         toTop(){
             this.$emit('goTop',!this.gotop);
         }
-    }
+    },
+    props:['servephone','servewx']
 }
 </script>
 
@@ -65,6 +66,7 @@ export default {
                 // display: block;
                 opacity: 1;
                  right: 50px;
+                   transform: scale(1);
             }
         }
     }
@@ -73,6 +75,7 @@ export default {
         right: 0;
         line-height: 30px;
         top: 0;
+          transform: scale(0);
         background:  rgba(25,151,232,0.5);
         opacity: 0;
         padding: 10px;

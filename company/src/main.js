@@ -7,6 +7,7 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI)
 Vue.prototype.$http = HTTP
+Vue.prototype.iphead = 'http://106.12.9.12'
 Vue.config.productionTip = false
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 import 'swiper/dist/css/swiper.css'

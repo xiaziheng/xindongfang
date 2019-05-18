@@ -5,7 +5,7 @@
       
         <ul>
             <li>
-                <img class="nav-logo" src="../assets/logo.png" alt> 德瑞芯
+                <img class="nav-logo" src="../assets/logo.png" alt>
             </li>
           <li @click="goScroll('home')">
             <a href="javascript:;">
@@ -118,10 +118,10 @@
           <MapNote style="margin-top:center;" :mapadd='company.CompanyLocal'></MapNote>
           
         </div>
-         <footer-page :footercode='company'></footer-page>
+         <footer-page></footer-page>
       </div>
     </vuescroll>
-    <silidefix @goTop="goTop" :servephone='company.CompanyPhone' :servewx='company.QRCode'></silidefix>
+    <silidefix @goTop="goTop"></silidefix>
    
   </header>
 </template>
@@ -268,7 +268,7 @@ header {
           font-size: 18px;
           color: #fff;
           text-align: left;
-          text-indent: 22px;
+          text-indent: 20px;
           display: block;
           font-weight: bold;
           margin-top: 8px;
@@ -276,7 +276,7 @@ header {
         span:nth-child(2) {
           width: 400px;
           line-height: 20px;
-          font-size: 14px;
+          font-size: 12px;
           color: #fff;
           text-align: left;
           display: block;
@@ -460,7 +460,7 @@ header {
       }
     }
     .nav-logo {
-      width: 40px;
+      width: 150px;
       height: 40px;
       position: absolute;
       top: 20px;
