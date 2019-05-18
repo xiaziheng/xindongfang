@@ -46,7 +46,11 @@ export default {
                     background:"#666",
                 }
               },
-              company:{},
+              company:{
+                  Cover:{Path:''},
+                  QRCode:{Path:''},
+                  CompanyLocal:''
+              },
               customer:[],
               lunbo:[],
               product:[],
