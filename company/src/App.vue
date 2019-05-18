@@ -15,6 +15,8 @@
 }
 #app,html,body{
   height: 100%;
+                  background: linear-gradient(180deg,hsla(0,0%,100%,0) 60%,#fff),linear-gradient(70deg,#dbedff 32%,#ebfff0);
+
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

@@ -197,40 +197,24 @@
             </li>
           </ul>
           <div class="conatinerTlt" id="about">关于我们</div>
-          <ul class="containerList3">
-            <li>
-              <img src="../assets/photo1.jpg" alt>
-              <div>关于我们标题一</div>
-              <p>阐述一</p>
-              <p>阐述二</p>
-            </li>
-            <li>
-              <img src="../assets/photo1.jpg" alt>
-              <div>关于我们标题二</div>
-              <p>阐述一</p>
-              <p>阐述二</p>
-            </li>
-            <li>
-              <img src="../assets/photo1.jpg" alt>
-              <div>关于我们标题三</div>
-              <p>阐述一</p>
-              <p>阐述二</p>
-            </li>
-            <li>
-              <img src="../assets/photo1.jpg" alt>
-              <div>关于我们标题四</div>
-              <p>阐述一</p>
-              <p>阐述二</p>
-            </li>
-            <li>
-              <img src="../assets/photo1.jpg" alt>
-              <div>关于我们标题五</div>
-              <p>阐述一</p>
-              <p>阐述二</p>
-            </li>
-          </ul>
+          <div class="containerList3">
+              <div class="aboutImg">
+                  <img src="https://nwzimg.wezhan.cn/contents/sitefiles2030/10150395/images/7003426.png" alt="">
+              </div>
+              <div class="aboutNote">
+                  <p>
+                     2011年，我们把奶茶利用咖啡的卡布奇诺的制做方法
+                  <br>将奶茶中的奶与茶分离，创新制作而成全新的奶盖茶，风靡全球。
+                  <br>2018年，我们再次创新，把奶盖与烘焙制法结合。
+                  <br>创新而制成雪浮蕾——即最高级的奶盖
+                  <br>口感轻盈灵动 造型丰富多变 搭配充满美感
+                  <br>被誉为奶茶皇冠最顶上的明珠！
+                  </p>
+                 
+              </div>
+          </div>
 
-          <MapNote></MapNote>
+          <MapNote style="margin-top:center;"></MapNote>
         </div>
       </div>
     </vuescroll>
@@ -249,7 +233,7 @@ header {
   position: relative;
   .containerBox {
     //   margin-top: 560px;
-    background: #fff;
+    // background: #fff;
     width: 100%;
     //   position: relative;
     height: 100%;
@@ -258,29 +242,31 @@ header {
   .container {
     width: 1000px;
     height: auto;
-    background: #fff;
     // overflow: hidden;
     margin: 0 auto;
     .containerList4 {
-      width: 1000px;
+      width: 100%;
       margin: 0 auto;
       overflow: hidden;
       margin-top: 40px;
       margin-bottom: 50px;
-      background: #fff;
+      display:flex;
+      justify-content: space-between;
+
+    //   background: #fff;
       li {
-        width: 200px;
+        // width: 200px;
         
         margin-right: 50px;
         float: left;
-        background: #fff;
+        // background: #fff;
         cursor: pointer;
         .icon {
           
           font-size: 60px;
           margin: 10px auto;
           display: block;
-          background: #fff;
+        //   background: #fff;
         }
         div {
           width: 100px;
@@ -292,10 +278,11 @@ header {
         }
         &:hover{
             .icon{
+                color: #1485ef;
                  -webkit-animation: icon-bounce 0.5s alternate;
-            -moz-animation: icon-bounce 0.5s alternate;
-            -o-animation: icon-bounce 0.5s alternate;
-            animation: icon-bounce 0.5s alternate;
+                -moz-animation: icon-bounce 0.5s alternate;
+                -o-animation: icon-bounce 0.5s alternate;
+                animation: icon-bounce 0.5s alternate;
             }
         }
       }
@@ -307,59 +294,67 @@ header {
       }
     }
     .containerList3 {
-      width: 1000px;
-      height: auto;
+      width: 100%;
+      height: 400px;
       margin: 0 auto;
       overflow: hidden;
-      li {
-        width: 160px;
-        height: 210px;
-        overflow: hidden;
-        float: left;
-        margin-right: 40px;
-        text-align: center;
-        img {
-          width: 100px;
-          height: 100px;
-          display: block;
-          margin: 25px auto 0;
-          background: #fff;
+      text-align: center;
+      position: relative;
+      margin-bottom: 100px;
+    //   background: #000;
+        .aboutImg{
+            width: 50%;
+            height: 400px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: .7s all ease;
+            img{
+                width: 100%;
+                height: 100%;
+            }
         }
-        p {
-          width: 160px;
-          font-size: 12px;
-          color: #666;
-          line-height: 20px;
-          height: 20px;
-          overflow: hidden;
+        .aboutNote{
+            width: 50%;
+            height: 400px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: rgba(94,97,102, 0.5);
+            transition: .7s all ease;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+            p{
+                height: auto;
+                display: block;
+            }
         }
-        div {
-          font-size: 13px;
-          color: #000;
-          margin-top: 15px;
+        &:hover{
+            .aboutImg{
+                left: 50%;
+            }
+            .aboutNote{
+                right: 50%;
+            }
         }
-      }
-      li:last-child {
-        margin-right: 0;
-      }
-      li:first-child {
-        margin-left: 20px;
-      }
     }
     .containerList2 {
-      width: 1000px;
+      width: 100%;
       height: auto;
       margin: 0 auto;
       overflow: hidden;
-      background: #fff;
+    //   background: #fff;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
 
       li {
-        width: 480px;
+        width: 48%;
         height: 350px;
-        background: #fff;
+        // background: #fff;
         position: relative;
         margin-top: 20px;
         span:nth-child(1) {
@@ -443,27 +438,27 @@ header {
     .conatinerTlt {
       width: 100%;
       height: 80px;
-      background: #dfdfdf;
+      background: rgba(138,150,163,0.5);
       text-align: left;
       line-height: 80px;
       //   overflow: hidden;
       font-size: 25px;
-      color: #000;
+      color: red;
       font-weight: bold;
       text-indent: 30px;
       margin: 20px auto;
     }
     .containerList {
-      width: 1000px;
+      width: 100%;
       height: auto;
       margin: 0 auto;
       //   overflow: hidden;
-      background: #fff;
+    //   background: #fff;
       li {
-        width: 1000px;
+        width: 100%;
         height: 240px;
         // overflow: hidden;
-        background: #fff;
+        // background: #fff;
         margin-top: 10px;
         transition: 0.5s all ease;
         &:hover {
@@ -476,35 +471,35 @@ header {
           }
         }
         .fl {
-          width: 260px;
-          height: 240px;
+          width: 26%;
+        //   height: 240px;
           float: left;
-          background: #fff;
+        //   background: #fff;
           a {
             display: block;
-            width: 260px;
-            height: 200px;
+            width: 100%;
+            // height: 200px;
             // overflow: hidden;
             margin-left: 30px;
             margin-top: 20px;
             img {
               display: block;
-              width: 200px;
-              height: 200px;
+              width: 100%;
+            //   height: 200px;
               background: #fff;
               border-radius: 4px;
             }
           }
         }
         .fr {
-          width: 600px;
-          height: 240px;
+          width: 60%;
+        //   height: 240px;
           float: left;
-          background: #fff;
+        //   background: #fff;
           margin-left: 140px;
           .frF1 {
-            width: 600px;
-            height: 40px;
+            width: 100%;
+            // height: 40px;
             font-size: 20px;
             color: #000;
             text-align: left;
@@ -514,7 +509,7 @@ header {
             float: left;
           }
           .frfonts {
-            width: 600px;
+            width: 100%;
             height: auto;
             overflow: hidden;
             font-size: 13px;
@@ -652,7 +647,7 @@ nav ul li a:hover::before {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 nav ul li a:hover span {
-  color: #000;
+  color: red;
   -webkit-animation: anim-francisco 0.3s forwards;
   animation: anim-francisco 0.3s forwards;
 }
@@ -843,5 +838,26 @@ nav ul li a:hover span {
     -webkit-transform: rotate(-5deg);
     transform: rotate(-5deg);
   }
+}
+@media screen and (min-width: 1400px) {
+   header {
+        .container{
+            width: 1280px;
+        }
+         .bannerLb {
+            width: 1280px;
+        }
+   }
+  
+}
+@media screen and (min-width: 1700px) {
+   header{
+        .container{
+            width: 1560px;
+        }
+        .bannerLb {
+            width: 1560px;
+        }
+   } 
 }
 </style>

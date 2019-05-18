@@ -40,7 +40,7 @@ export default {
 }
 </script>
 
-<style <style lang="less" scoped>
+<style lang="less" scoped>
 .sildfixed{
     position: fixed;
     z-index: 9999;
