@@ -2,11 +2,10 @@
   <header>
     <vuescroll :ops="ops" ref="vs">
       <nav>
-      
         <ul>
-            <li>
-                <img class="nav-logo" src="../assets/logo.png" alt> 德瑞芯
-            </li>
+          <li>
+            <img class="nav-logo" src="../assets/logo.png" alt> 德瑞芯
+          </li>
           <li @click="goScroll('home')">
             <a href="javascript:;">
               <span>首页</span>
@@ -22,15 +21,14 @@
               <span>业务介绍</span>
             </a>
           </li>
-        
+          <li @click="goScroll('about')">
+            <a href="javascript:;">
+              <span>关于我们</span>
+            </a>
+          </li>
           <li @click="goScroll('contact')">
             <a href="javascript:;">
               <span>联系我们</span>
-            </a>
-          </li>
-            <li @click="goScroll('about')">
-            <a href="javascript:;">
-              <span>关于我们</span>
             </a>
           </li>
         </ul>
@@ -38,22 +36,23 @@
       <div class="bannerLb">
         <div class="bannerTop">
           <swiper :options="swiperOption" ref="mySwiper">
-            <swiper-slide v-for='(item,index) in lunbo' :key="index">
-              <img
-                :src="iphead+item.Cover.Path"
-                alt
-              >
+            <swiper-slide v-for="(item,index) in lunbo" :key="index">
+              <img :src="iphead+item.Cover.Path" alt>
             </swiper-slide>
           </swiper>
-          <div class="leftBtn swiper-button-prev" ><i class="el-icon-arrow-left"></i></div>
-           <div class="rightBtn swiper-button-next" ><i class="el-icon-arrow-right"></i></div>
+          <div class="leftBtn swiper-button-prev">
+            <i class="el-icon-arrow-left"></i>
+          </div>
+          <div class="rightBtn swiper-button-next">
+            <i class="el-icon-arrow-right"></i>
+          </div>
         </div>
       </div>
       <div class="containerBox">
         <div class="container">
           <div class="conatinerTlt" id="product">产品介绍</div>
           <ul class="containerList">
-            <li class="clearfloat" v-for='(item,index) in product' :key='index'>
+            <li class="clearfloat" v-for="(item,index) in product" :key="index">
               <div class="fl">
                 <a href="#">
                   <img :src="iphead+item.Cover.Path" alt>
@@ -61,26 +60,32 @@
               </div>
               <div class="fr">
                 <p class="frF1">{{item.ProductName}}</p>
-                <div class="frfonts" v-html="item.ProductIntro">
-                  
-                </div>
+                <div class="frfonts" v-html="item.ProductIntro"></div>
               </div>
             </li>
           </ul>
           <div class="conatinerTlt" id="professional">业务介绍</div>
           <ul class="containerList2">
-            <li v-for='(item,index) in service' :key='index'>
+            <li v-for="(item,index) in service" :key="index">
               <div class="hover_overlay"></div>
               <div class="note">
                 <span>{{item.Name}}</span>
-                <span v-html='item.CaseIntro'>
-                  
-                </span>
+                <span v-html="item.CaseIntro"></span>
               </div>
 
               <img class="imgBox" :src="iphead+item.Cover.Path" alt>
             </li>
           </ul>
+          <div class="conatinerTlt" id="about">关于我们</div>
+          <div class="containerList3">
+            <div class="aboutImg">
+              <img :src="iphead+company.Cover.Path" alt>
+            </div>
+            <div class="aboutNote">
+              <p v-html="company.CompanyIdea"></p>
+            </div>
+          </div>
+
           <div class="conatinerTlt" id="contact">联系我们</div>
           <ul class="containerList4">
             <li>
@@ -92,7 +97,7 @@
               <div>{{company.CompanyMailbox || ''}}</div>
             </li>
             <li>
-             <i class="icon el-icon-location-outline"></i>
+              <i class="icon el-icon-location-outline"></i>
               <div>{{company.CompanyAddr || ''}}</div>
             </li>
             <li>
@@ -100,27 +105,13 @@
               <div>电话：{{company.CompanyPhone || ''}}</div>
             </li>
           </ul>
-          <div class="conatinerTlt" id="about">关于我们</div>
-          <div class="containerList3">
-              <div class="aboutImg">
-                  <img :src="iphead+company.Cover.Path" alt="">
-              </div>
-              <div class="aboutNote">
-                  <p v-html="company.CompanyIdea">
-                     
-                  </p>
-                 
-              </div>
-          </div>
 
-          <MapNote style="margin-top:center;" :mapadd='company.CompanyLocal'></MapNote>
-          
+          <MapNote style="margin-top:center;" :mapadd="company.CompanyLocal"></MapNote>
         </div>
-         <footer-page :footercode='company'></footer-page>
+        <footer-page :footercode="company"></footer-page>
       </div>
     </vuescroll>
-    <silidefix @goTop="goTop" :servephone='company.CompanyPhone' :servewx='company.QRCode'></silidefix>
-   
+    <silidefix @goTop="goTop" :servephone="company.CompanyPhone" :servewx="company.QRCode"></silidefix>
   </header>
 </template>
 
@@ -152,23 +143,22 @@ header {
       overflow: hidden;
       margin-top: 40px;
       margin-bottom: 50px;
-      display:flex;
+      display: flex;
       justify-content: space-between;
 
-    //   background: #fff;
+      //   background: #fff;
       li {
         // width: 200px;
-        
+
         margin-right: 50px;
         float: left;
         // background: #fff;
         cursor: pointer;
         .icon {
-          
           font-size: 60px;
           margin: 10px auto;
           display: block;
-        //   background: #fff;
+          //   background: #fff;
         }
         div {
           width: 100px;
@@ -178,14 +168,14 @@ header {
           text-align: center;
           margin: 0 auto;
         }
-        &:hover{
-            .icon{
-                color: #1485ef;
-                 -webkit-animation: icon-bounce 0.5s alternate;
-                -moz-animation: icon-bounce 0.5s alternate;
-                -o-animation: icon-bounce 0.5s alternate;
-                animation: icon-bounce 0.5s alternate;
-            }
+        &:hover {
+          .icon {
+            color: #1485ef;
+            -webkit-animation: icon-bounce 0.5s alternate;
+            -moz-animation: icon-bounce 0.5s alternate;
+            -o-animation: icon-bounce 0.5s alternate;
+            animation: icon-bounce 0.5s alternate;
+          }
         }
       }
       li:last-child {
@@ -203,52 +193,52 @@ header {
       text-align: center;
       position: relative;
       margin-bottom: 100px;
-    //   background: #000;
-        .aboutImg{
-            width: 50%;
-            height: 400px;
-            position: absolute;
-            left: 0;
-            top: 0;
-            transition: .7s all ease;
-            img{
-                width: 100%;
-                height: 100%;
-            }
+      //   background: #000;
+      .aboutImg {
+        width: 50%;
+        height: 400px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: 0.7s all ease;
+        img {
+          width: 100%;
+          height: 100%;
         }
-        .aboutNote{
-            width: 50%;
-            height: 400px;
-            position: absolute;
-            right: 0;
-            top: 0;
-            background: rgba(94,97,102, 0.5);
-            transition: .7s all ease;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: left;
-            p{
-                height: auto;
-                display: block;
-            }
+      }
+      .aboutNote {
+        width: 50%;
+        height: 400px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: rgba(94, 97, 102, 0.5);
+        transition: 0.7s all ease;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: left;
+        p {
+          height: auto;
+          display: block;
         }
-        &:hover{
-            .aboutImg{
-                left: 50%;
-            }
-            .aboutNote{
-                right: 50%;
-            }
+      }
+      &:hover {
+        .aboutImg {
+          left: 50%;
         }
+        .aboutNote {
+          right: 50%;
+        }
+      }
     }
     .containerList2 {
       width: 100%;
       height: auto;
       margin: 0 auto;
       overflow: hidden;
-    //   background: #fff;
+      //   background: #fff;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
@@ -286,7 +276,7 @@ header {
           display: block;
           //   margin: 15px 0;
           background: #fff;
-          transition: .7s all ease;
+          transition: 0.7s all ease;
         }
 
         .hover_overlay {
@@ -317,9 +307,9 @@ header {
           transition: all 0.7s;
         }
         &:hover {
-            //   .imgBox{
-        //       transform: scale(1.5);
-        //   }
+          //   .imgBox{
+          //       transform: scale(1.5);
+          //   }
           .hover_overlay {
             transform: perspective(900px) rotateX(0deg);
             transform-style: preserve-3d;
@@ -330,7 +320,6 @@ header {
             visibility: visible;
             opacity: 1;
           }
-        
         }
       }
       li:nth-child(odd) {
@@ -340,7 +329,7 @@ header {
     .conatinerTlt {
       width: 100%;
       height: 80px;
-      background: rgba(138,150,163,0.5);
+      background: rgba(138, 150, 163, 0.5);
       text-align: left;
       line-height: 80px;
       //   overflow: hidden;
@@ -355,7 +344,7 @@ header {
       height: auto;
       margin: 0 auto;
       //   overflow: hidden;
-    //   background: #fff;
+      //   background: #fff;
       li {
         width: 100%;
         // height: 240px;
@@ -374,9 +363,9 @@ header {
         }
         .fl {
           width: 26%;
-        //   height: 240px;
+          //   height: 240px;
           float: left;
-        //   background: #fff;
+          //   background: #fff;
           a {
             display: block;
             width: 100%;
@@ -387,7 +376,7 @@ header {
             img {
               display: block;
               width: 100%;
-            //   height: 200px;
+              //   height: 200px;
               background: #fff;
               border-radius: 4px;
             }
@@ -395,9 +384,9 @@ header {
         }
         .fr {
           width: 60%;
-        //   height: 240px;
+          //   height: 240px;
           float: left;
-        //   background: #fff;
+          //   background: #fff;
           margin-left: 140px;
           .frF1 {
             width: 100%;
@@ -443,11 +432,11 @@ header {
     ul {
       list-style: none;
       display: flex;
-    //   width: 900px;
+      //   width: 900px;
       margin: 0 auto;
       height: 80px;
       overflow: hidden;
-    justify-content:center;
+      justify-content: center;
       li {
         font-size: 18px;
         width: 200px;
@@ -475,50 +464,50 @@ header {
     // position: relative;
     .bannerTop {
       width: 100%;
-    //   height: 560px;
+      //   height: 560px;
       //   overflow: hidden;
       position: relative;
-      .leftBtn{
-          border-radius: 50%;
-          width: 50px;
-          height: 50px;
-          background: rgba(204,204,204,0.5);
-          position: absolute;
-          left: 20px;
-          top: 50%;
-          margin-top: -25px;
-          line-height: 50px;
-          color: #fff;
-          z-index: 1000;
-          cursor: pointer;
-           font-size: 25px;
-           outline: none;
-           &:hover{
-               color: red;
-           }
+      .leftBtn {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        background: rgba(204, 204, 204, 0.5);
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        margin-top: -25px;
+        line-height: 50px;
+        color: #fff;
+        z-index: 1000;
+        cursor: pointer;
+        font-size: 25px;
+        outline: none;
+        &:hover {
+          color: red;
+        }
       }
-      .rightBtn{
-          outline: none;
-          border-radius: 50%;
-          width: 50px;
-          height: 50px;
-          background: rgba(204,204,204,0.5);
-          font-size: 25px;
-          position: absolute;
-          right: 20px;
-          top: 50%;
-          margin-top: -25px;
-           line-height: 50px;
-          color: #fff;
-          z-index: 1000;
-          cursor: pointer;
-          &:hover{
-               color: red;
-           }
+      .rightBtn {
+        outline: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        background: rgba(204, 204, 204, 0.5);
+        font-size: 25px;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        margin-top: -25px;
+        line-height: 50px;
+        color: #fff;
+        z-index: 1000;
+        cursor: pointer;
+        &:hover {
+          color: red;
+        }
       }
       img {
         width: 100%;
-        height: 100%;
+        height: 500px;
         // background:blue;
         display: block;
         float: left;
@@ -550,8 +539,8 @@ header {
 }
 nav ul li {
   position: relative;
-  &:first-child{
-      background: none!important;
+  &:first-child {
+    background: none !important;
   }
 }
 nav ul li:hover {
@@ -784,24 +773,23 @@ nav ul li a:hover span {
   }
 }
 @media screen and (min-width: 1400px) {
-   header {
-        .container{
-            width: 1280px;
-        }
-         .bannerLb {
-            width: 1280px;
-        }
-   }
-  
+  header {
+    .container {
+      width: 1280px;
+    }
+    .bannerLb {
+      width: 1280px;
+    }
+  }
 }
 @media screen and (min-width: 1700px) {
-   header{
-        .container{
-            width: 1560px;
-        }
-        .bannerLb {
-            width: 1560px;
-        }
-   } 
+  header {
+    .container {
+      width: 1560px;
+    }
+    .bannerLb {
+      width: 1560px;
+    }
+  }
 }
 </style>

@@ -17,6 +17,7 @@ export default {
                 init:false,
                 loop: true,
                 effect: 'cube',
+                grabCursor : true,
                 navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
