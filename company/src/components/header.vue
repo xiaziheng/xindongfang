@@ -43,9 +43,7 @@
                 :src="iphead+item.Cover.Path"
                 alt
               >
-              
             </swiper-slide>
-            <div class="swiper-pagination" slot="pagination"></div>
           </swiper>
           <div class="leftBtn swiper-button-prev" ><i class="el-icon-arrow-left"></i></div>
            <div class="rightBtn swiper-button-next" ><i class="el-icon-arrow-right"></i></div>
@@ -149,7 +147,7 @@ header {
     // overflow: hidden;
     margin: 0 auto;
     .containerList4 {
-      width: 100%;
+      width: 1000px;
       margin: 0 auto;
       overflow: hidden;
       margin-top: 40px;

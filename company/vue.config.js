@@ -13,6 +13,11 @@ module.exports = {
   indexPath: 'index.html', // 指定生成的 index.html 输入路径，默认outputDir
   pages: undefined, // 构建多页
   productionSourceMap: false, // 开启 生产环境的 source map?
+  configureWebpack: {
+    externals: {
+      "BMap": "BMap"
+    }
+  },
   chainWebpack: config => {
     // 配置路径别名
     config.resolve.alias

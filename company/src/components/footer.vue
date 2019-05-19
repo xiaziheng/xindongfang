@@ -85,21 +85,21 @@ export default {
         text-align: center;
         background-color: #1a1818;
     }
-@media screen and (min-width: 1400px) {
-   .footer {
-        ul{
-            width: 1280px;
-        }
-   }
+// @media screen and (min-width: 1400px) {
+//    .footer {
+//         ul{
+//             width: 1280px;
+//         }
+//    }
   
-}
-@media screen and (min-width: 1700px) {
-   .footer{
-        ul{
-            width: 1560px;
-        }
-   } 
-}
+// }
+// @media screen and (min-width: 1700px) {
+//    .footer{
+//         ul{
+//             width: 1560px;
+//         }
+//    } 
+// }
 
 </style>
 
