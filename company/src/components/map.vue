@@ -1,11 +1,16 @@
 <template>
+<div style="position:relative" @click="hideMask" @mouseleave="showMask">
+  <div class='mask' title="点击后可放大" v-if="mask"></div>
   <div id="container"></div>
+</div>
 </template>
 <script>
 import BMap from "BMap";
 export default {
   data() {
-    return {};
+    return {
+      mask:true
+    };
   },
   props: ["mapadd"],
   mounted() {
@@ -26,7 +31,14 @@ export default {
       }
     }, 100);
   },
-  methods: {},
+  methods: {
+    hideMask(){
+      this.mask = false;
+    },
+    showMask(){
+      this.mask = true;
+    }
+  },
   created: function() {}
 };
 </script>
@@ -35,5 +47,10 @@ export default {
   width: 100%;
   height: 300px;
   margin-bottom: 50px;
+}
+.mask{
+  width: 100%;height: 100%;
+  position: absolute;
+  z-index: 10;
 }
 </style>

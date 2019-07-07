@@ -16,7 +16,8 @@ export default {
                 // observeParents:true,//修改swiper的父元素时，自动初始化swiper
                 init:false,
                 loop: true,
-                effect: 'cube',
+                // width : 1280,
+                effect: 'fade',
                 grabCursor : true,
                 navigation: {
                     nextEl: '.swiper-button-next',
@@ -56,6 +57,7 @@ export default {
                 CompanyLocal: ''
             },
             customer: [],
+            background: 'background:none',
             lunbo: [],
             product: [],
             service: [],
@@ -86,9 +88,19 @@ export default {
         this.getList();
     },
     mounted() {
-
+        let width = document.documentElement.clientWidth;
+          document.querySelector('.bannerLb').style.width = width+'px';
     },
     methods: {
+        handleScroll(vertical) {
+            // console.log(vertical, horizontal, nativeEvent)
+            let height = vertical.scrollTop;
+            if(height>0){
+                this.background = 'background:#1997e8';
+            }else{
+                this.background = 'background:none';
+            }
+        },
         goTop() {
             this.goScroll('home')
         },

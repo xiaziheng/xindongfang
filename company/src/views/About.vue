@@ -1,5 +1,23 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="home">
+    <second />
   </div>
 </template>
+
+<script>
+// @ is an alias to /src
+import second from '@/components/second.vue'
+
+export default {
+  name: 'home',
+  components: {
+    second
+  }
+}
+</script>
+<style>
+.home{
+  height: 100%;
+}
+</style>
+

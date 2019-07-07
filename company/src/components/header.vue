@@ -1,10 +1,11 @@
 <template>
   <header>
-    <vuescroll :ops="ops" ref="vs">
-      <nav>
+    <vuescroll :ops="ops" ref="vs" @handle-scroll="handleScroll">
+      <nav :style="background">
         <ul>
           <li>
-            <img class="nav-logo" src="../assets/logo.png" alt> 德瑞芯
+            <!-- <img class="nav-logo" src="../assets/logo.png" alt>  -->
+            北京德瑞芯科技有限公司
           </li>
           <li @click="goScroll('home')">
             <a href="javascript:;">
@@ -50,7 +51,7 @@
       </div>
       <div class="containerBox">
         <div class="container">
-          <div class="conatinerTlt" id="product">产品介绍</div>
+          <div class="conatinerTlt" id="product"><span></span> 产品介绍</div>
           <ul class="containerList">
             <li class="clearfloat" v-for="(item,index) in product" :key="index">
               <div class="fl">
@@ -64,7 +65,7 @@
               </div>
             </li>
           </ul>
-          <div class="conatinerTlt" id="professional">业务介绍</div>
+          <div class="conatinerTlt" id="professional"><span></span> 业务介绍</div>
           <ul class="containerList2">
             <li v-for="(item,index) in service" :key="index">
               <div class="hover_overlay"></div>
@@ -76,7 +77,7 @@
               <img class="imgBox" :src="iphead+item.Cover.Path" alt>
             </li>
           </ul>
-          <div class="conatinerTlt" id="about">关于我们</div>
+          <div class="conatinerTlt" id="about"><span></span> 关于我们</div>
           <div class="containerList3">
             <div class="aboutImg">
               <img :src="iphead+company.Cover.Path" alt>
@@ -86,7 +87,7 @@
             </div>
           </div>
 
-          <div class="conatinerTlt" id="contact">联系我们</div>
+          <div class="conatinerTlt" id="contact"><span></span> 联系我们</div>
           <ul class="containerList4">
             <li>
               <i class="icon el-icon-tickets"></i>
@@ -119,6 +120,7 @@
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
+
 header {
   width: 100%;
   height: 100%;
@@ -244,13 +246,13 @@ header {
       flex-wrap: wrap;
 
       li {
-        width: 48%;
-        height: 350px;
+        width: 31%;
+        height: 300px;
         // background: #fff;
         position: relative;
         margin-top: 20px;
         span:nth-child(1) {
-          width: 100%;
+          // width: 100%;
           height: 30px;
           line-height: 30px;
           font-size: 18px;
@@ -262,13 +264,14 @@ header {
           margin-top: 8px;
         }
         span:nth-child(2) {
-          width: 400px;
+          // width:100%;
           line-height: 20px;
           font-size: 14px;
           color: #fff;
           text-align: left;
           display: block;
           margin-left: 20px;
+          margin-right: 20px;
         }
         .imgBox {
           width: 100%;
@@ -328,16 +331,19 @@ header {
     }
     .conatinerTlt {
       width: 100%;
-      height: 80px;
-      background: rgba(138, 150, 163, 0.5);
+      height: 38px;
+      // background: rgba(138, 150, 163, 0.5);
       text-align: left;
-      line-height: 80px;
+      line-height: 44px;
       //   overflow: hidden;
       font-size: 25px;
-      color: red;
+      color: rgb(0, 0, 0);
       font-weight: bold;
       text-indent: 30px;
-      margin: 20px auto;
+      margin: 0 auto;
+      margin-top: 50px;
+      margin-bottom: 40px;
+      border-left:6px solid rgb(25, 151, 232)
     }
     .containerList {
       width: 100%;
@@ -371,7 +377,7 @@ header {
             width: 100%;
             // height: 200px;
             // overflow: hidden;
-            margin-left: 30px;
+            // margin-left: 30px;
             margin-top: 20px;
             img {
               display: block;
@@ -387,7 +393,7 @@ header {
           //   height: 240px;
           float: left;
           //   background: #fff;
-          margin-left: 140px;
+          margin-left: 110px;
           .frF1 {
             width: 100%;
             // height: 40px;
@@ -428,7 +434,8 @@ header {
     top: 0;
     z-index: 15000;
     width: 100%;
-    background: #1997e8;
+    // background: #1997e8;
+    background: none;
     ul {
       list-style: none;
       display: flex;
@@ -455,11 +462,12 @@ header {
     }
   }
   .bannerLb {
-    width: 1000px;
+    // width: 1000px;
+    width: 100%;
     // height: 450px;
-    // overflow: hidden;
+    overflow: hidden;
     margin: 0 auto;
-    margin-top: 120px;
+    // margin-top: 120px;
     // background:orange;
     // position: relative;
     .bannerTop {
@@ -483,7 +491,7 @@ header {
         font-size: 25px;
         outline: none;
         &:hover {
-          color: red;
+          color: rgb(25, 151, 232);
         }
       }
       .rightBtn {
@@ -502,7 +510,7 @@ header {
         z-index: 1000;
         cursor: pointer;
         &:hover {
-          color: red;
+          color: rgb(25, 151, 232);
         }
       }
       img {
@@ -511,7 +519,7 @@ header {
         // background:blue;
         display: block;
         float: left;
-        border-radius: 8px;
+        // border-radius: 8px;
       }
     }
     .bannerBtn {
@@ -560,7 +568,7 @@ nav ul li a:before {
   position: absolute;
   width: 60px;
   height: 3px;
-  background: #d8761e;
+  background: #1997e8;
   bottom: 0;
   left: 50%;
   margin-left: -30px;
@@ -580,7 +588,7 @@ nav ul li a:hover::before {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 nav ul li a:hover span {
-  color: red;
+  color: rgb(25, 151, 232);
   -webkit-animation: anim-francisco 0.3s forwards;
   animation: anim-francisco 0.3s forwards;
 }
