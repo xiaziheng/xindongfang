@@ -3,7 +3,7 @@
     <vuescroll :ops="ops" ref="vs" @handle-scroll="handleScroll">
       <nav :style="background">
         <ul>
-          <li>
+          <li @click="goScroll('home')">
             <!-- <img class="nav-logo" src="../assets/logo.png" alt>  -->
             北京德瑞芯科技有限公司
           </li>
@@ -35,10 +35,37 @@
         </ul>
       </nav>
       <div class="banner">
-        <img src="http://106.12.9.12/api/File/GetFile/c3de532f-6975-422c-bff1-4d5a6c29d24b" alt>
+        <img :src="iphead+Details.Cover.Path" alt>
       </div>
       <div class="note">
-          <div class="container1" v-html="company.CompanyIdea"></div>
+          <div class="container1" >
+              <div class="container" >
+                  <div class="left" >
+                      <h3>{{Details.ProductName}}</h3>
+                      <div v-html="Details.ProductIntro"></div>
+                      <h3 style="margin-top:30px">公司简介</h3>
+                      <img style="width:100%" :src="iphead+company.Cover.Path"  alt="" >
+                      <div>
+                        公司名称：{{company.CompanyName}}
+                      </div>
+                      <div>
+                        公司地址：{{company.CompanyAddr}}
+                      </div>
+                       <div>
+                        联系方式：{{company.CompanyPhone}}
+                      </div>
+                      <div>
+                        概述：
+                      </div>
+                      <div v-html="company.CompanyIntro"></div>
+                  </div>
+                  <div class="right">
+                      <h1>{{$route.query.type==1? '产品':'业务'}}简介</h1>
+                      <div v-html="Details.ProductDetail"></div>
+                  </div>
+                  
+              </div>
+          </div>
       </div>
       <footer-page :footercode="company"></footer-page>
     </vuescroll>
@@ -66,6 +93,7 @@ header {
       img{
           height: 400px;
           width: 100%;
+          background: #ccc;
       }
   }
   .note{
@@ -74,8 +102,31 @@ header {
       z-index: 10;
       width: 100%;
     .container1{
-        background: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 60%, #fff), linear-gradient(70deg, #dbedff 32%, #ebfff0);
         min-height: 800px;
+        background: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 60%, #fff), linear-gradient(70deg, #dbedff 32%, #ebfff0);
+      padding-top: 30px;
+    }
+    .container{
+         display: flex;
+        width: 1000px;
+        margin: 0 auto;
+        .left{
+            width: 30%;
+            // border: 4px solid rgb(25, 151, 232);
+            // border-radius: 8px;
+            min-height: 100px;
+            padding: 10px;
+            background: #fff;
+            text-align: left;
+            h3{
+                margin-bottom: 15px;
+            }
+        }
+        .right{
+            h1{
+                margin-bottom: 30px;
+            }
+        }
     }
   }
   nav {

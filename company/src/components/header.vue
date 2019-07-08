@@ -38,7 +38,9 @@
         <div class="bannerTop">
           <swiper :options="swiperOption" ref="mySwiper">
             <swiper-slide v-for="(item,index) in lunbo" :key="index">
-              <img :src="iphead+item.Cover.Path" alt>
+              <a :href="item.JumpUrl" target="_blank">
+                <img :src="iphead+item.Cover.Path" alt>
+              </a>
             </swiper-slide>
           </swiper>
           <div class="leftBtn swiper-button-prev">
@@ -51,23 +53,29 @@
       </div>
       <div class="containerBox">
         <div class="container">
-          <div class="conatinerTlt" id="product"><span></span> 产品介绍</div>
+          <div class="conatinerTlt" id="product">
+            <span></span> 产品介绍
+          </div>
           <ul class="containerList">
-            <li class="clearfloat" v-for="(item,index) in product" :key="index">
-              <div class="fl">
-                <a href="#">
-                  <img :src="iphead+item.Cover.Path" alt>
-                </a>
-              </div>
-              <div class="fr">
-                <p class="frF1">{{item.ProductName}}</p>
-                <div class="frfonts" v-html="item.ProductIntro"></div>
-              </div>
+            <li class="clearfloat" v-for="(item,index) in product" :key="index" @click="openSecond(item.ID,1)">
+              <!-- <a class="clearfloat" :href="'/#/second?id='+item.ID+'&'" target="_blank"> -->
+                <div class="fl">
+                  <a href="javascript:;">
+                    <img :src="iphead+item.Cover.Path" alt>
+                  </a>
+                </div>
+                <div class="fr">
+                  <p class="frF1">{{item.ProductName}}</p>
+                  <div class="frfonts" v-html="item.ProductIntro"></div>
+                </div>
+              <!-- </a> -->
             </li>
           </ul>
-          <div class="conatinerTlt" id="professional"><span></span> 业务介绍</div>
+          <div class="conatinerTlt" id="professional">
+            <span></span> 业务介绍
+          </div>
           <ul class="containerList2">
-            <li v-for="(item,index) in service" :key="index">
+            <li v-for="(item,index) in service" :key="index" @click="openSecond(item.ID,2)">
               <div class="hover_overlay"></div>
               <div class="note">
                 <span>{{item.Name}}</span>
@@ -77,7 +85,9 @@
               <img class="imgBox" :src="iphead+item.Cover.Path" alt>
             </li>
           </ul>
-          <div class="conatinerTlt" id="about"><span></span> 关于我们</div>
+          <div class="conatinerTlt" id="about">
+            <span></span> 关于我们
+          </div>
           <div class="containerList3">
             <div class="aboutImg">
               <img :src="iphead+company.Cover.Path" alt>
@@ -87,7 +97,9 @@
             </div>
           </div>
 
-          <div class="conatinerTlt" id="contact"><span></span> 联系我们</div>
+          <div class="conatinerTlt" id="contact">
+            <span></span> 联系我们
+          </div>
           <ul class="containerList4">
             <li>
               <i class="icon el-icon-tickets"></i>
@@ -120,7 +132,6 @@
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-
 header {
   width: 100%;
   height: 100%;
@@ -343,7 +354,7 @@ header {
       margin: 0 auto;
       margin-top: 50px;
       margin-bottom: 40px;
-      border-left:6px solid rgb(25, 151, 232)
+      border-left: 6px solid rgb(25, 151, 232);
     }
     .containerList {
       width: 100%;
@@ -464,7 +475,7 @@ header {
   .bannerLb {
     // width: 1000px;
     width: 100%;
-   height: 500px;
+    height: 500px;
     overflow: hidden;
     margin: 0 auto;
     // margin-top: 120px;

@@ -25,6 +25,9 @@ export default {
             lunbo: [],
             product: [],
             service: [],
+            Details:{
+                Cover: { Path: '' },
+            }
         }
 
 
@@ -42,8 +45,9 @@ export default {
     },
    
     created() {
-        this.getList(()=>{
-        });
+        // console.log(this.$route.query)
+        
+        this.getList(()=>{});
         
     },
  
@@ -61,30 +65,18 @@ export default {
             this.goScroll('home')
         },
         goScroll(id) {
-            var docHeight;
-            if (id == 'home') {
-                docHeight = 0;
-            } else {
-                docHeight = document.getElementById(id).offsetTop  //+560 ;
-            }
-
-            this.$refs['vs'].scrollTo(
-                {
-                    y: docHeight
-                },
-                300,
-                'easeInQuad'
-            );
+            this.$router.push({path:'/',query:{id:id}})
         },
         getList(cb) {
-            this.$http.get('/api/home1/index').then((res) => {
+            let query=this.$route.query;
+            let params={
+                id:query.id,type:query.type
+            }
+            this.$http.get('/api/home1/Details',{params}).then((res) => {
 
-                let data = res.data;
-                this.company = data.company[0];
-                this.customer = data.customer;
-                this.lunbo = data.lunbo;
-                this.product = data.product;
-                this.service = data.service;
+            //   console.log(res)
+              this.Details = res.data.Data;
+              this.company = res.data.CompanyInfo;
                 cb()
             })
             

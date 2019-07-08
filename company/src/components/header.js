@@ -85,10 +85,18 @@ export default {
       },
     created() {
         this.getList();
+       
     },
     mounted() {
         let width = document.documentElement.clientWidth;
           document.querySelector('.bannerLb').style.width = width+'px';
+          let query=this.$route.query;
+          if(query.id){
+              setTimeout(() => {
+                this.goScroll(query.id)
+              }, 300);
+             
+          }
     },
     methods: {
         handleScroll(vertical) {
@@ -100,11 +108,16 @@ export default {
                 this.background = 'background:none';
             }
         },
+        openSecond(id,type){
+            this.$router.push({path:'/second',query:{id:id,type:type}})
+        },
         goTop() {
-            this.goScroll('home')
+            this.goScroll('home');
+            this.$router.push({path:'/',query:{}})
         },
         goScroll(id) {
             var docHeight;
+            this.$router.push({path:'/',query:{id:id}})
             if (id == 'home') {
                 docHeight = 0;
             } else {
