@@ -78,9 +78,8 @@ export default {
         }
     },
     updated() {
-        console.log(this.lunbo);
         if (this.lunbo.length>1) {
-          console.log(this.swiper);
+        //   console.log(this.swiper);
           this.swiper.init();
         }
       },
@@ -95,7 +94,7 @@ export default {
         handleScroll(vertical) {
             // console.log(vertical, horizontal, nativeEvent)
             let height = vertical.scrollTop;
-            if(height>0){
+            if(height>420){
                 this.background = 'background:#1997e8';
             }else{
                 this.background = 'background:none';

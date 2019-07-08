@@ -15,7 +15,9 @@ module.exports = {
   productionSourceMap: false, // 开启 生产环境的 source map?
   configureWebpack: {
     externals: {
-      "BMap": "BMap"
+      "BMap": "BMap", 
+      vue: 'Vue',
+      element: 'ElementUI',
     }
   },
   chainWebpack: config => {
@@ -44,5 +46,6 @@ module.exports = {
     }
 
   },
+
   lintOnSave: 'error'
 }

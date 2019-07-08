@@ -43,7 +43,6 @@ export default {
    
     created() {
         this.getList(()=>{
-            console.log(this.company)
         });
         
     },
@@ -52,7 +51,6 @@ export default {
         handleScroll(vertical) {
             // console.log(vertical, horizontal, nativeEvent)
             let height = vertical.scrollTop;
-            console.log(height)
             if(height>=320){
                 this.background = 'background:#1997e8';
             }else{
@@ -87,7 +85,6 @@ export default {
                 this.lunbo = data.lunbo;
                 this.product = data.product;
                 this.service = data.service;
-                console.log(res)
                 cb()
             })
             

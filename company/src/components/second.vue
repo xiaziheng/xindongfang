@@ -38,7 +38,7 @@
         <img src="http://106.12.9.12/api/File/GetFile/c3de532f-6975-422c-bff1-4d5a6c29d24b" alt>
       </div>
       <div class="note">
-          <div class="container" v-html="company.CompanyIdea"></div>
+          <div class="container1" v-html="company.CompanyIdea"></div>
       </div>
       <footer-page :footercode="company"></footer-page>
     </vuescroll>
@@ -73,7 +73,7 @@ header {
       position: relative;
       z-index: 10;
       width: 100%;
-    .container{
+    .container1{
         background: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 60%, #fff), linear-gradient(70deg, #dbedff 32%, #ebfff0);
         min-height: 800px;
     }

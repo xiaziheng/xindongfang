@@ -464,7 +464,7 @@ header {
   .bannerLb {
     // width: 1000px;
     width: 100%;
-    // height: 450px;
+   height: 500px;
     overflow: hidden;
     margin: 0 auto;
     // margin-top: 120px;
@@ -517,6 +517,7 @@ header {
         width: 100%;
         height: 500px;
         // background:blue;
+        background: #ccc;
         display: block;
         float: left;
         // border-radius: 8px;
