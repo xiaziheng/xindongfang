@@ -39,7 +39,7 @@
           <swiper :options="swiperOption" ref="mySwiper">
             <swiper-slide v-for="(item,index) in lunbo" :key="index">
               <a :href="item.JumpUrl" target="_blank">
-                <img :src="iphead+item.Cover.Path" alt>
+                <img :src="iphead+item.Cover.Path" alt />
               </a>
             </swiper-slide>
           </swiper>
@@ -52,55 +52,71 @@
         </div>
       </div>
       <div class="containerBox">
-        <div class="container">
-          <div class="conatinerTlt" id="product">
-            <span></span> 产品介绍
+        <div class="">
+          <div class="conatinerTlt container" id="product">
+            <span class="title">
+              产品
+              <span class="blueFont">介绍</span>
+            </span>
+            <span class="underLine"></span>
+            <p class="English">PRODUCT DESRIPTIONC</p>
           </div>
-          <ul class="containerList">
-            <li class="clearfloat" v-for="(item,index) in product" :key="index" @click="openSecond(item.ID,1)">
+          <ul class="containerList container">
+            <li
+              class="clearfloat"
+              v-for="(item,index) in product"
+              :key="index"
+              @click="openSecond(item.ID,1)"
+            >
               <!-- <a class="clearfloat" :href="'/#/second?id='+item.ID+'&'" target="_blank"> -->
-                <div class="fl">
-                  <a href="javascript:;">
-                    <img :src="iphead+item.Cover.Path" alt>
-                  </a>
-                </div>
-                <div class="fr">
-                  <p class="frF1">{{item.ProductName}}</p>
-                  <div class="frfonts" v-html="item.ProductIntro"></div>
-                </div>
+              <div class="fl">
+                <a href="javascript:;">
+                  <img :src="iphead+item.Cover.Path" alt />
+                </a>
+              </div>
+              <div class="fr">
+                <p class="frF1">{{item.ProductName}}</p>
+                <div class="frfonts" v-html="item.ProductIntro"></div>
+              </div>
               <!-- </a> -->
             </li>
           </ul>
-          <div class="conatinerTlt" id="professional">
-            <span></span> 业务介绍
-          </div>
-          <ul class="containerList2">
-            <li v-for="(item,index) in service" :key="index" @click="openSecond(item.ID,2)">
-              <div class="hover_overlay"></div>
-              <div class="note">
-                <span>{{item.Name}}</span>
-                <span v-html="item.CaseIntro"></span>
-              </div>
+          <div style="background:#f2f3f4;padding:60px 0 100px">
+            <div class="conatinerTlt container" id="professional">
+              <span class="title">
+                业务
+                <span class="blueFont">介绍</span>
+              </span>
+              <span class="underLine"></span>
+              <p class="English">BUSINESS DESRIPTIONC</p>
+            </div>
+            <ul class="containerList2 container" >
+              <li v-for="(item,index) in service" :key="index" @click="openSecond(item.ID,2)">
+                <div class="hover_overlay"></div>
+                <div class="note">
+                  <span>{{item.Name}}</span>
+                  <span v-html="item.CaseIntro"></span>
+                </div>
 
-              <img class="imgBox" :src="iphead+item.Cover.Path" alt>
-            </li>
-          </ul>
-          <div class="conatinerTlt" id="about">
-            <span></span> 关于我们
+                <img class="imgBox" :src="iphead+item.Cover.Path" alt />
+              </li>
+            </ul>
           </div>
-          <div class="containerList3">
+
+          <div class="conatinerTlt container" id="about">
+            <span class="title">关于我们</span>
+            <span class="underLine"></span>
+            <p class="English" style="margin-left:-35px;">ABOUT US</p>
+          </div>
+          <div class="containerList3 container">
             <div class="aboutImg">
-              <img :src="iphead+company.Cover.Path" alt>
+              <img :src="iphead+company.Cover.Path" alt />
             </div>
             <div class="aboutNote">
               <p v-html="company.CompanyIdea"></p>
             </div>
           </div>
-
-          <div class="conatinerTlt" id="contact">
-            <span></span> 联系我们
-          </div>
-          <ul class="containerList4">
+          <ul class="containerList4 container" id="contact">
             <li>
               <i class="icon el-icon-tickets"></i>
               <div>{{company.CompanyName || ''}}</div>
@@ -118,9 +134,8 @@
               <div>电话：{{company.CompanyPhone || ''}}</div>
             </li>
           </ul>
-
-          <MapNote style="margin-top:center;" :mapadd="company.CompanyLocal"></MapNote>
         </div>
+        <MapNote style="margin-top:center;" :mapadd="company.CompanyLocal"></MapNote>
         <footer-page :footercode="company"></footer-page>
       </div>
     </vuescroll>
@@ -150,6 +165,7 @@ header {
     height: auto;
     // overflow: hidden;
     margin: 0 auto;
+    }
     .containerList4 {
       width: 1000px;
       margin: 0 auto;
@@ -342,10 +358,11 @@ header {
     }
     .conatinerTlt {
       width: 100%;
-      height: 38px;
+      // height: 38px;
+      text-align: center;
       // background: rgba(138, 150, 163, 0.5);
-      text-align: left;
-      line-height: 44px;
+      // text-align: left;
+      // line-height: 44px;
       //   overflow: hidden;
       font-size: 25px;
       color: rgb(0, 0, 0);
@@ -354,7 +371,27 @@ header {
       margin: 0 auto;
       margin-top: 50px;
       margin-bottom: 40px;
-      border-left: 6px solid rgb(25, 151, 232);
+      position: relative;
+      // border-left: 6px solid rgb(25, 151, 232);
+      .blueFont {
+        color: rgb(25, 151, 232);
+      }
+      .English {
+        font-weight: normal;
+        font-size: 20px;
+      }
+      .underLine {
+        position: absolute;
+        bottom: -10px;
+        width: 88px;
+        left: 50%;
+        margin-left: -44px;
+        height: 3px;
+        background: #1485ef;
+      }
+      .title {
+        margin-left: -35px;
+      }
     }
     .containerList {
       width: 100%;
@@ -438,7 +475,7 @@ header {
         }
       }
     }
-  }
+  
   nav {
     position: fixed;
     // top: -560px;
@@ -475,7 +512,7 @@ header {
   .bannerLb {
     // width: 1000px;
     width: 100%;
-    height: 500px;
+    height: 600px;
     overflow: hidden;
     margin: 0 auto;
     // margin-top: 120px;
@@ -490,7 +527,8 @@ header {
         border-radius: 50%;
         width: 50px;
         height: 50px;
-        background: rgba(204, 204, 204, 0.5);
+        // background: rgba(204, 204, 204, 0.5);
+        background: none;
         position: absolute;
         left: 20px;
         top: 50%;
@@ -501,6 +539,9 @@ header {
         cursor: pointer;
         font-size: 25px;
         outline: none;
+        i {
+          font-size: 60px;
+        }
         &:hover {
           color: rgb(25, 151, 232);
         }
@@ -510,7 +551,8 @@ header {
         border-radius: 50%;
         width: 50px;
         height: 50px;
-        background: rgba(204, 204, 204, 0.5);
+        // background: rgba(204, 204, 204, 0.5);
+        background: none;
         font-size: 25px;
         position: absolute;
         right: 20px;
@@ -520,13 +562,16 @@ header {
         color: #fff;
         z-index: 1000;
         cursor: pointer;
+        i {
+          font-size: 60px;
+        }
         &:hover {
           color: rgb(25, 151, 232);
         }
       }
       img {
         width: 100%;
-        height: 500px;
+        height: 600px;
         // background:blue;
         background: #ccc;
         display: block;
@@ -564,7 +609,7 @@ nav ul li {
   }
 }
 nav ul li:hover {
-  background: #fff;
+  // background: #fff;
 }
 nav ul li a {
   color: #fff;
@@ -578,12 +623,12 @@ nav ul li span {
 nav ul li a:before {
   content: "";
   position: absolute;
-  width: 60px;
+  width: 30px;
   height: 3px;
-  background: #1997e8;
-  bottom: 0;
+  background: #fff;
+  bottom: 20px;
   left: 50%;
-  margin-left: -30px;
+  margin-left: -15px;
   opacity: 0;
   -webkit-transform: translate3d(0, -40px, 0);
   transform: translate3d(0, -40px, 0);
@@ -600,7 +645,7 @@ nav ul li a:hover::before {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 nav ul li a:hover span {
-  color: rgb(25, 151, 232);
+  // color: rgb(25, 151, 232);
   -webkit-animation: anim-francisco 0.3s forwards;
   animation: anim-francisco 0.3s forwards;
 }

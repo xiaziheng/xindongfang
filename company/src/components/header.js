@@ -102,7 +102,7 @@ export default {
         handleScroll(vertical) {
             // console.log(vertical, horizontal, nativeEvent)
             let height = vertical.scrollTop;
-            if(height>420){
+            if(height>520){
                 this.background = 'background:#1997e8';
             }else{
                 this.background = 'background:none';
