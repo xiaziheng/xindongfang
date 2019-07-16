@@ -52,7 +52,7 @@
         </div>
       </div>
       <div class="containerBox">
-        <div class="">
+        <div class>
           <div class="conatinerTlt container" id="product">
             <span class="title">
               产品
@@ -69,15 +69,18 @@
               @click="openSecond(item.ID,1)"
             >
               <!-- <a class="clearfloat" :href="'/#/second?id='+item.ID+'&'" target="_blank"> -->
-              <div class="fl">
-                <a href="javascript:;">
-                  <img :src="iphead+item.Cover.Path" alt />
-                </a>
+              <div class="hover clearfloat">
+                <div class="fl">
+                  <a href="javascript:;">
+                    <img :src="iphead+item.Cover.Path" alt />
+                  </a>
+                </div>
+                <div class="fr">
+                  <p class="frF1">{{item.ProductName}}</p>
+                  <div class="frfonts" v-html="item.ProductIntro"></div>
+                </div>
               </div>
-              <div class="fr">
-                <p class="frF1">{{item.ProductName}}</p>
-                <div class="frfonts" v-html="item.ProductIntro"></div>
-              </div>
+
               <!-- </a> -->
             </li>
           </ul>
@@ -90,7 +93,7 @@
               <span class="underLine"></span>
               <p class="English">BUSINESS DESRIPTIONC</p>
             </div>
-            <ul class="containerList2 container" >
+            <!-- <ul class="containerList2 container">
               <li v-for="(item,index) in service" :key="index" @click="openSecond(item.ID,2)">
                 <div class="hover_overlay"></div>
                 <div class="note">
@@ -100,22 +103,35 @@
 
                 <img class="imgBox" :src="iphead+item.Cover.Path" alt />
               </li>
-            </ul>
+            </ul>-->
+            <div
+              class="containerList3 container"
+              v-for="(item,index) in service"
+              :key="index"
+              @click="openSecond(item.ID,2)"
+            >
+              <div class="aboutNote">
+                <p class="titleAbout">{{item.Name}}</p>
+                <p class="noteAbout" v-html="item.CaseIntro"></p>
+              </div>
+              <div class="aboutImg">
+                <img :src="iphead+item.Cover.Path" alt />
+              </div>
+            </div>
+          </div>
+          <div id="about" :style="'background-image:url('+iphead+company.Cover.Path+'); '">
+            <div class="conatinerTlt container" >
+              <span class="title">关于我们</span>
+              <span class="underLine"></span>
+              <p class="English" style="margin-left:-35px;">ABOUT US</p>
+            </div>
+            <div class="containerListAbout container">
+              <div class="aboutNote1" style="margin-top:70px;">
+                <p v-html="company.CompanyIdea"></p>
+              </div>
+            </div>
           </div>
 
-          <div class="conatinerTlt container" id="about">
-            <span class="title">关于我们</span>
-            <span class="underLine"></span>
-            <p class="English" style="margin-left:-35px;">ABOUT US</p>
-          </div>
-          <div class="containerList3 container">
-            <div class="aboutImg">
-              <img :src="iphead+company.Cover.Path" alt />
-            </div>
-            <div class="aboutNote">
-              <p v-html="company.CompanyIdea"></p>
-            </div>
-          </div>
           <ul class="containerList4 container" id="contact">
             <li>
               <i class="icon el-icon-tickets"></i>
@@ -165,317 +181,346 @@ header {
     height: auto;
     // overflow: hidden;
     margin: 0 auto;
-    }
-    .containerList4 {
-      width: 1000px;
-      margin: 0 auto;
-      overflow: hidden;
-      margin-top: 40px;
-      margin-bottom: 50px;
-      display: flex;
-      justify-content: space-between;
+  }
+  .containerList4 {
+    width: 1000px;
+    margin: 0 auto;
+    // overflow: hidden;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
 
-      //   background: #fff;
-      li {
-        // width: 200px;
+    //   background: #fff;
+    li {
+      // width: 200px;
 
-        margin-right: 50px;
-        float: left;
-        // background: #fff;
-        cursor: pointer;
-        .icon {
-          font-size: 60px;
-          margin: 10px auto;
-          display: block;
-          //   background: #fff;
-        }
-        div {
-          width: 100px;
-          line-height: 18px;
-          font-size: 13px;
-          color: #666;
-          text-align: center;
-          margin: 0 auto;
-        }
-        &:hover {
-          .icon {
-            color: #1485ef;
-            -webkit-animation: icon-bounce 0.5s alternate;
-            -moz-animation: icon-bounce 0.5s alternate;
-            -o-animation: icon-bounce 0.5s alternate;
-            animation: icon-bounce 0.5s alternate;
-          }
-        }
-      }
-      li:last-child {
-        margin-right: 0;
-      }
-      li:first-child {
-        margin-left: 25px;
-      }
-    }
-    .containerList3 {
-      width: 100%;
-      height: 400px;
-      margin: 0 auto;
-      overflow: hidden;
-      text-align: center;
+      margin-right: 50px;
+      float: left;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 1px solid #000;
+      // background: #fff;
+      cursor: pointer;
       position: relative;
-      margin-bottom: 100px;
-      //   background: #000;
-      .aboutImg {
-        width: 50%;
-        height: 400px;
-        position: absolute;
-        left: 0;
-        top: 0;
-        transition: 0.7s all ease;
-        img {
-          width: 100%;
-          height: 100%;
-        }
+      .icon {
+        font-size: 60px;
+        margin: 10px auto;
+        display: block;
+        //   background: #fff;
       }
-      .aboutNote {
-        width: 50%;
-        height: 400px;
+      div {
+        // width: 100%;
+        line-height: 18px;
+        font-size: 13px;
+        color: #666;
+        text-align: center;
+        margin: 0 auto;
         position: absolute;
-        right: 0;
-        top: 0;
-        background: rgba(94, 97, 102, 0.5);
-        transition: 0.7s all ease;
-        color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: left;
-        p {
-          height: auto;
-          display: block;
-        }
+        bottom: -30px;
+        font-weight: bold;
+        white-space :  nowrap;
+        transform:translateX(-50%);
+        left: 50%;
       }
       &:hover {
-        .aboutImg {
-          left: 50%;
-        }
-        .aboutNote {
-          right: 50%;
+        border: 1px solid #1485ef;
+        .icon {
+          color: #1485ef;
+          -webkit-animation: icon-bounce 0.5s alternate;
+          -moz-animation: icon-bounce 0.5s alternate;
+          -o-animation: icon-bounce 0.5s alternate;
+          animation: icon-bounce 0.5s alternate;
         }
       }
     }
-    .containerList2 {
-      width: 100%;
-      height: auto;
-      margin: 0 auto;
-      overflow: hidden;
-      //   background: #fff;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
+    li:last-child {
+      margin-right: 0;
+    }
+    li:first-child {
+      margin-left: 25px;
+    }
+  }
+  .containerList3 {
+    width: 100%;
+    height: 300px;
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    margin-bottom: 100px;
+    //   background: #000;
+    .aboutImg {
+      width: 50%;
+      height: 400px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: 0.7s all ease;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .aboutNote {
+      width: 50%;
+      height: 400px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: #fff;
+      transition: 0.7s all ease;
+      color: #ccc;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      text-align: left;
+      .titleAbout {
+        margin: 55px 55px 0 55px;
+        font-size: 22px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ccc;
+        color: #000;
+      }
+      .noteAbout {
+        margin: 20px 55px 0 55px;
+        max-height: 150px;
+        overflow: hidden;
+      }
+    }
+    &:hover {
+      .aboutImg {
+        right: 50%;
+      }
+      .aboutNote {
+        left: 50%;
+      }
+    }
+  }
+  .containerList2 {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    overflow: hidden;
+    //   background: #fff;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 
-      li {
-        width: 31%;
-        height: 300px;
-        // background: #fff;
-        position: relative;
-        margin-top: 20px;
-        span:nth-child(1) {
-          // width: 100%;
-          height: 30px;
-          line-height: 30px;
-          font-size: 18px;
-          color: #fff;
-          text-align: left;
-          text-indent: 22px;
-          display: block;
-          font-weight: bold;
-          margin-top: 8px;
-        }
-        span:nth-child(2) {
-          // width:100%;
-          line-height: 20px;
-          font-size: 14px;
-          color: #fff;
-          text-align: left;
-          display: block;
-          margin-left: 20px;
-          margin-right: 20px;
-        }
-        .imgBox {
-          width: 100%;
-          height: 100%;
-          display: block;
-          //   margin: 15px 0;
-          background: #fff;
-          transition: 0.7s all ease;
-        }
+    li {
+      width: 31%;
+      height: 300px;
+      // background: #fff;
+      position: relative;
+      margin-top: 20px;
+      span:nth-child(1) {
+        // width: 100%;
+        height: 30px;
+        line-height: 30px;
+        font-size: 18px;
+        color: #fff;
+        text-align: left;
+        text-indent: 22px;
+        display: block;
+        font-weight: bold;
+        margin-top: 8px;
+      }
+      span:nth-child(2) {
+        // width:100%;
+        line-height: 20px;
+        font-size: 14px;
+        color: #fff;
+        text-align: left;
+        display: block;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+      .imgBox {
+        width: 100%;
+        height: 100%;
+        display: block;
+        //   margin: 15px 0;
+        background: #fff;
+        transition: 0.7s all ease;
+      }
 
+      .hover_overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        opacity: 0;
+        visibility: hidden;
+        background: #1485ef;
+        -webkit-transform: perspective(500px) rotateX(90deg);
+        -ms-transform: perspective(500px) rotateX(90deg);
+        -o-transform: perspective(500px) rotateX(90deg);
+        transform: perspective(500px) rotateX(90deg);
+        transform-style: preserve-3d;
+        transition: all 0.7s;
+      }
+      .note {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        text-align: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.7s;
+      }
+      &:hover {
+        //   .imgBox{
+        //       transform: scale(1.5);
+        //   }
         .hover_overlay {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          top: 0px;
-          left: 0px;
-          opacity: 0;
-          visibility: hidden;
-          background: #1485ef;
-          -webkit-transform: perspective(500px) rotateX(90deg);
-          -ms-transform: perspective(500px) rotateX(90deg);
-          -o-transform: perspective(500px) rotateX(90deg);
-          transform: perspective(500px) rotateX(90deg);
+          transform: perspective(900px) rotateX(0deg);
           transform-style: preserve-3d;
-          transition: all 0.7s;
+          visibility: visible;
+          opacity: 0.8;
         }
         .note {
-          position: absolute;
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
+    li:nth-child(odd) {
+      float: left;
+    }
+  }
+  .conatinerTlt {
+    width: 100%;
+    // height: 38px;
+    text-align: center;
+    // background: rgba(138, 150, 163, 0.5);
+    // text-align: left;
+    // line-height: 44px;
+    //   overflow: hidden;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    text-indent: 30px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    position: relative;
+    // border-left: 6px solid rgb(25, 151, 232);
+    .blueFont {
+      color: rgb(25, 151, 232);
+    }
+    .English {
+      font-weight: normal;
+      font-size: 20px;
+    }
+    .underLine {
+      position: absolute;
+      bottom: -10px;
+      width: 88px;
+      left: 50%;
+      margin-left: -44px;
+      height: 3px;
+      background: #1485ef;
+    }
+    .title {
+      margin-left: -35px;
+    }
+  }
+  #about{
+    height: 620px;
+    width: 100%;
+    border: 0.1px solid #fff;
+   background-size: cover;
+  }
+  .containerList {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    //   overflow: hidden;
+    //   background: #fff;
+    display: flex;
+    justify-content: space-between;
+
+    li {
+      width: 31%;
+      height: 376px;
+      margin-bottom: 90px;
+      // height: 240px;
+      // overflow: hidden;
+      // background: #fff;
+      margin-top: 10px;
+
+      .hover {
+        transition: 1s all ease;
+        box-shadow: 0 0 6px #ccc;
+        height: 100%;
+        padding: 12px;
+      }
+      &:hover .hover {
+        transform: scale(1.1) rotateY(360deg);
+      }
+      .fl {
+        // width: 26%;
+        //   height: 240px;
+        // float: left;
+        //   background: #fff;
+        a {
+          display: block;
           width: 100%;
-          height: 100%;
-          top: 0px;
-          left: 0px;
-          text-align: center;
-          opacity: 0;
-          visibility: hidden;
-          transition: all 0.7s;
-        }
-        &:hover {
-          //   .imgBox{
-          //       transform: scale(1.5);
-          //   }
-          .hover_overlay {
-            transform: perspective(900px) rotateX(0deg);
-            transform-style: preserve-3d;
-            visibility: visible;
-            opacity: 0.8;
-          }
-          .note {
-            visibility: visible;
-            opacity: 1;
-          }
-        }
-      }
-      li:nth-child(odd) {
-        float: left;
-      }
-    }
-    .conatinerTlt {
-      width: 100%;
-      // height: 38px;
-      text-align: center;
-      // background: rgba(138, 150, 163, 0.5);
-      // text-align: left;
-      // line-height: 44px;
-      //   overflow: hidden;
-      font-size: 25px;
-      color: rgb(0, 0, 0);
-      font-weight: bold;
-      text-indent: 30px;
-      margin: 0 auto;
-      margin-top: 50px;
-      margin-bottom: 40px;
-      position: relative;
-      // border-left: 6px solid rgb(25, 151, 232);
-      .blueFont {
-        color: rgb(25, 151, 232);
-      }
-      .English {
-        font-weight: normal;
-        font-size: 20px;
-      }
-      .underLine {
-        position: absolute;
-        bottom: -10px;
-        width: 88px;
-        left: 50%;
-        margin-left: -44px;
-        height: 3px;
-        background: #1485ef;
-      }
-      .title {
-        margin-left: -35px;
-      }
-    }
-    .containerList {
-      width: 100%;
-      height: auto;
-      margin: 0 auto;
-      //   overflow: hidden;
-      //   background: #fff;
-      li {
-        width: 100%;
-        // height: 240px;
-        // overflow: hidden;
-        // background: #fff;
-        margin-top: 10px;
-        transition: 0.5s all ease;
-        &:hover {
-          transform: scale(1.2);
+          // height: 200px;
+          // overflow: hidden;
+          // margin-left: 30px;
           img {
-            -webkit-animation: icon-bounce 0.5s alternate;
-            -moz-animation: icon-bounce 0.5s alternate;
-            -o-animation: icon-bounce 0.5s alternate;
-            animation: icon-bounce 0.5s alternate;
-          }
-        }
-        .fl {
-          width: 26%;
-          //   height: 240px;
-          float: left;
-          //   background: #fff;
-          a {
             display: block;
             width: 100%;
-            // height: 200px;
-            // overflow: hidden;
-            // margin-left: 30px;
-            margin-top: 20px;
-            img {
-              display: block;
-              width: 100%;
-              //   height: 200px;
-              background: #fff;
-              border-radius: 4px;
-            }
-          }
-        }
-        .fr {
-          width: 60%;
-          //   height: 240px;
-          float: left;
-          //   background: #fff;
-          margin-left: 110px;
-          .frF1 {
-            width: 100%;
-            // height: 40px;
-            font-size: 20px;
-            color: #000;
-            text-align: left;
-            line-height: 40px;
-            margin-top: 10px;
-            font-weight: bold;
-            float: left;
-          }
-          .frfonts {
-            width: 100%;
-            height: auto;
-            overflow: hidden;
-            font-size: 13px;
-            color: #666;
-            line-height: 20px;
-            text-align: left;
-            float: left;
-          }
-          img {
-            float: left;
-            width: 45px;
-            height: 45px;
-            display: block;
-            margin-left: 8px;
+            //   height: 200px;
             background: #fff;
-            margin-top: 12px;
+            border-radius: 4px;
           }
         }
       }
+      .fr {
+        // width: 60%;
+        //   height: 240px;
+        // float: left;
+        //   background: #fff;
+        // margin-left: 110px;
+        .frF1 {
+          width: 100%;
+          // height: 40px;
+          font-size: 20px;
+          color: #000;
+          text-align: center;
+          line-height: 40px;
+          margin-top: 10px;
+          // font-weight: bold;
+        }
+        .frfonts {
+          width: 100%;
+          font-size: 13px;
+          color: #666;
+          line-height: 20px;
+          text-align: left;
+          float: left;
+          max-height: 100px;
+          overflow: hidden;
+        }
+        img {
+          float: left;
+          width: 45px;
+          height: 45px;
+          display: block;
+          margin-left: 8px;
+          background: #fff;
+          margin-top: 12px;
+        }
+      }
     }
-  
+  }
+
   nav {
     position: fixed;
     // top: -560px;

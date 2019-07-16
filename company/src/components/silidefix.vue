@@ -4,7 +4,7 @@
     <li>
       <img src="../assets/ico1_23.png" alt>
       <div class="mask">
-          客服电话：{{servephone}}
+          客服电话：<br>{{servephone}}
       </div>
     </li>
     <li>
@@ -73,6 +73,7 @@ export default {
     .mask{
         position: absolute;
         right: 0;
+         white-space :  nowrap;
         line-height: 30px;
         top: 0;
           transform: scale(0);
