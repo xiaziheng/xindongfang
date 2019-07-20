@@ -47,8 +47,8 @@ export default {
     created() {
         // console.log(this.$route.query)
         
-        this.getList(()=>{});
-        
+        this.getDetail(()=>{});
+        this.getList()
     },
  
     methods: {
@@ -67,7 +67,17 @@ export default {
         goScroll(id) {
             this.$router.push({path:'/',query:{id:id}})
         },
-        getList(cb) {
+        getList() {
+            this.$http.get('/api/home1/index').then((res) => {
+
+                let data = res.data;
+                this.customer = data.customer;
+                this.lunbo = data.lunbo;
+                this.product = data.product;
+                this.service = data.service;
+            })
+        },
+        getDetail(cb) {
             let query=this.$route.query;
             let params={
                 id:query.id,type:query.type

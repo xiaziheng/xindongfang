@@ -54,15 +54,19 @@
               <div v-html="Details.ProductDetail"></div>
             </div>
              <div class="right">
-              <h3>{{Details.ProductName}}</h3>
-              <div v-html="Details.ProductIntro"></div>
-              <h3 style="margin-top:30px">公司简介</h3>
+              <h3>综合业务案例</h3>
+              <ul>
+                <li v-for="(item,index) in service" :key="index">
+                  {{item.Name}}
+                </li>
+              </ul>
+              <h3 style="margin-top:20px">产品介绍</h3>
               <img style="width:100%" :src="iphead+company.Cover.Path" alt />
-              <div>公司名称：{{company.CompanyName}}</div>
-              <div>公司地址：{{company.CompanyAddr}}</div>
-              <div>联系方式：{{company.CompanyPhone}}</div>
-              <div>概述：</div>
-              <div v-html="company.CompanyIntro"></div>
+              <ul>
+                <li v-for="(item,index) in product" :key="index">
+                  {{item.ProductName}}
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -156,6 +160,7 @@ header {
     margin: 0 auto;
     .left {
       text-align: left;
+       margin-right: 2%; 
        width: 66%;
        h1 {
         margin-bottom: 30px;
@@ -164,7 +169,8 @@ header {
     .right {
 
       width: 32%;
-      box-shadow: 0 0 6px #ccc;
+      box-shadow: 5px 4px 9px #ccc;
+      border: 1px solid #ccc;
       margin-bottom: 30px;
 // border: 4px solid rgb(25, 151, 232);
       // border-radius: 8px;
@@ -172,7 +178,9 @@ header {
       padding: 10px;
       background: #fff;
       text-align: left;
-      margin-right: 2%; 
+     img{
+       height: 150px;
+     }
           font-size: 15px;
       h3 {
         margin-bottom: 15px;
@@ -182,7 +190,20 @@ header {
         padding-bottom: 8px;
         border-bottom: 1px dotted #1485ef
       }
-     
+     ul{
+            list-style-type: disc;
+            li{
+              list-style-type: disc;
+              margin-left: 18px;
+              font-size: 14px;
+              line-height: 30px;
+              cursor: pointer;
+              &:hover{
+                color: #1485ef;
+                text-decoration: underline;
+              }
+            }
+     }
     }
   }
 
