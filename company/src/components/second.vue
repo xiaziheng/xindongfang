@@ -35,37 +35,37 @@
         </ul>
       </nav>
       <div class="banner">
-        <img :src="iphead+Details.Cover.Path" alt>
+        <div class="conatinerTlt container" style=" margin-top: 140px;">
+          <p class="title">
+           {{$route.query.type==1? '产品':'业务'}}
+            <span class="blueFont">介绍</span>
+          </p>
+        
+          <p class="English">PRODUCT DESRIPTIONC</p>
+            <span class="underLine"></span>
+        </div>
       </div>
       <div class="note">
-          <div class="container1" >
-              <div class="container" >
-                  <div class="left" >
-                      <h3>{{Details.ProductName}}</h3>
-                      <div v-html="Details.ProductIntro"></div>
-                      <h3 style="margin-top:30px">公司简介</h3>
-                      <img style="width:100%" :src="iphead+company.Cover.Path"  alt="" >
-                      <div>
-                        公司名称：{{company.CompanyName}}
-                      </div>
-                      <div>
-                        公司地址：{{company.CompanyAddr}}
-                      </div>
-                       <div>
-                        联系方式：{{company.CompanyPhone}}
-                      </div>
-                      <div>
-                        概述：
-                      </div>
-                      <div v-html="company.CompanyIntro"></div>
-                  </div>
-                  <div class="right">
-                      <h1>{{$route.query.type==1? '产品':'业务'}}简介</h1>
-                      <div v-html="Details.ProductDetail"></div>
-                  </div>
-                  
-              </div>
+        <div class="container1">
+          <div class="container" style="display: flex;">
+           
+            <div class="left">
+              <h1>{{Details.ProductName}}</h1>
+              <div v-html="Details.ProductDetail"></div>
+            </div>
+             <div class="right">
+              <h3>{{Details.ProductName}}</h3>
+              <div v-html="Details.ProductIntro"></div>
+              <h3 style="margin-top:30px">公司简介</h3>
+              <img style="width:100%" :src="iphead+company.Cover.Path" alt />
+              <div>公司名称：{{company.CompanyName}}</div>
+              <div>公司地址：{{company.CompanyAddr}}</div>
+              <div>联系方式：{{company.CompanyPhone}}</div>
+              <div>概述：</div>
+              <div v-html="company.CompanyIntro"></div>
+            </div>
           </div>
+        </div>
       </div>
       <footer-page :footercode="company"></footer-page>
     </vuescroll>
@@ -74,61 +74,118 @@
 </template>
 
 <script src="./second.js">
-
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-
 header {
   width: 100%;
   height: 100%;
   overflow: hidden;
   position: relative;
-  .banner{
-      position: fixed;
-      width: 100%;
+  .conatinerTlt {
+    // width: 100%;
+    // height: 38px;
+     
+    text-align: left;
+    // background: rgba(138, 150, 163, 0.5);
+    // text-align: left;
+    // line-height: 44px;
+    //   overflow: hidden;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    // text-indent: 30px;
+    // margin: 0 auto;
+    // margin-top: 50px;
+    margin-bottom: 40px;
+    position: relative;
+    // border-left: 6px solid rgb(25, 151, 232);
+    .blueFont {
+      color: rgb(25, 151, 232);
+    }
+    .English {
+      font-weight: normal;
+      font-size: 20px;
+        margin-top: 8px;
+    }
+    .underLine {
+      // position: absolute;
+      // bottom: -10px;
+      width: 88px;  
+      margin-top: 16px;
+      display: block;
+      // left: 0;
+      // margin-left: -44px;
+      height: 3px;
+      background: #1485ef;
+    }
+    .title {
+      // margin-left: -35px;
+    }
+  }
+
+  .banner {
+    position: fixed;
+    width: 100%;
+    height: 340px;
+    top: 0;
+    left: 0;
+      background: rgb(242,242,242);
+    img {
       height: 400px;
-      top: 0;
-      left: 0;
-      img{
-          height: 400px;
-          width: 100%;
-          background: #ccc;
-      }
-  }
-  .note{
-      padding-top: 400px;
-      position: relative;
-      z-index: 10;
       width: 100%;
-    .container1{
-        min-height: 800px;
-        background: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 60%, #fff), linear-gradient(70deg, #dbedff 32%, #ebfff0);
-      padding-top: 30px;
-    }
-    .container{
-         display: flex;
-        width: 1000px;
-        margin: 0 auto;
-        .left{
-            width: 30%;
-            // border: 4px solid rgb(25, 151, 232);
-            // border-radius: 8px;
-            min-height: 100px;
-            padding: 10px;
-            background: #fff;
-            text-align: left;
-            h3{
-                margin-bottom: 15px;
-            }
-        }
-        .right{
-            h1{
-                margin-bottom: 30px;
-            }
-        }
+    
     }
   }
+  .note {
+    padding-top: 340px;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    
+  }
+  .container1 {
+    min-height: 800px;
+    background: #fff;
+  box-shadow: 0 0 6px #ccc;
+    padding-top: 30px;
+  }
+  .container {
+    
+    width: 1000px;
+    margin: 0 auto;
+    .left {
+      text-align: left;
+       width: 66%;
+       h1 {
+        margin-bottom: 30px;
+      }
+    }
+    .right {
+
+      width: 32%;
+      box-shadow: 0 0 6px #ccc;
+      margin-bottom: 30px;
+// border: 4px solid rgb(25, 151, 232);
+      // border-radius: 8px;
+      min-height: 100px;
+      padding: 10px;
+      background: #fff;
+      text-align: left;
+      margin-right: 2%; 
+          font-size: 15px;
+      h3 {
+        margin-bottom: 15px;
+        font-size: 15px;
+        // font-weight: normal;
+        color: #1485ef;
+        padding-bottom: 8px;
+        border-bottom: 1px dotted #1485ef
+      }
+     
+    }
+  }
+
   nav {
     position: fixed;
     // top: -560px;
@@ -170,7 +227,7 @@ nav ul li {
   }
 }
 nav ul li:hover {
-  background: #fff;
+  // background: #fff;
 }
 nav ul li a {
   color: #fff;
@@ -184,12 +241,12 @@ nav ul li span {
 nav ul li a:before {
   content: "";
   position: absolute;
-  width: 60px;
+  width: 30px;
   height: 3px;
-  background: #1997e8;
-  bottom: 0;
+  background: #fff;
+  bottom: 20px;
   left: 50%;
-  margin-left: -30px;
+  margin-left: -15px;
   opacity: 0;
   -webkit-transform: translate3d(0, -40px, 0);
   transform: translate3d(0, -40px, 0);
@@ -206,7 +263,7 @@ nav ul li a:hover::before {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 nav ul li a:hover span {
-  color: rgb(25, 151, 232);
+  // color: rgb(25, 151, 232);
   -webkit-animation: anim-francisco 0.3s forwards;
   animation: anim-francisco 0.3s forwards;
 }

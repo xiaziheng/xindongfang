@@ -21,7 +21,7 @@ export default {
                 CompanyLocal: ''
             },
             customer: [],
-            background: 'background:none',
+            background: 'background:#1997e8',
             lunbo: [],
             product: [],
             service: [],
@@ -58,7 +58,7 @@ export default {
             if(height>=320){
                 this.background = 'background:#1997e8';
             }else{
-                this.background = 'background:none';
+                this.background = 'background:#1997e8';
             }
         },
         goTop() {
