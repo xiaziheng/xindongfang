@@ -454,13 +454,13 @@ header {
       margin-top: 10px;
 
       .hover {
-        transition: 1s all ease;
+        transition: .5s all ease;
         box-shadow: 0 0 6px #ccc;
         height: 100%;
         padding: 12px;
       }
       &:hover .hover {
-        transform: scale(1.1) rotateY(360deg);
+        transform: scale(1.1);
       }
       .fl {
         // width: 26%;
@@ -885,21 +885,21 @@ nav ul li a:hover span {
 @media screen and (min-width: 1400px) {
   header {
     .container {
-      width: 1280px;
+      width: 1090px;
     }
-    .bannerLb {
-      width: 1280px;
-    }
+    // .bannerLb {
+    //   width: 1280px;
+    // }
   }
 }
 @media screen and (min-width: 1700px) {
   header {
     .container {
-      width: 1560px;
+      width: 1090px;
     }
-    .bannerLb {
-      width: 1560px;
-    }
+    // .bannerLb {
+    //   width: 1560px;
+    // }
   }
 }
 </style>

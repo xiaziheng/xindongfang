@@ -35,7 +35,7 @@
         </ul>
       </nav>
       <div class="banner">
-        <div class="conatinerTlt container" style=" margin-top: 140px;">
+        <div class="conatinerTlt container" style=" margin-top: 130px;">
           <p class="title">
            {{$route.query.type==1? '产品':'业务'}}
             <span class="blueFont">介绍</span>
@@ -110,13 +110,13 @@ header {
     .English {
       font-weight: normal;
       font-size: 20px;
-        margin-top: 8px;
+        // margin-top: 8px;
     }
     .underLine {
       // position: absolute;
       // bottom: -10px;
       width: 88px;  
-      margin-top: 16px;
+      margin-top: 10px;
       display: block;
       // left: 0;
       // margin-left: -44px;
@@ -129,11 +129,12 @@ header {
   }
 
   .banner {
-    position: fixed;
+    // position: fixed;
     width: 100%;
-    height: 340px;
+    height: 300px;
     top: 0;
     left: 0;
+    border: 0.1px solid #fff;
       background: rgb(242,242,242);
     img {
       height: 400px;
@@ -142,7 +143,7 @@ header {
     }
   }
   .note {
-    padding-top: 340px;
+    // padding-top: 340px;
     position: relative;
     z-index: 10;
     width: 100%;
@@ -331,21 +332,21 @@ nav ul li a:hover span {
 @media screen and (min-width: 1400px) {
   header {
     .container {
-      width: 1280px;
+      width: 1090px;
     }
-    .bannerLb {
-      width: 1280px;
-    }
+    // .bannerLb {
+    //   width: 1280px;
+    // }
   }
 }
 @media screen and (min-width: 1700px) {
   header {
     .container {
-      width: 1560px;
+      width: 1090px;
     }
-    .bannerLb {
-      width: 1560px;
-    }
+    // .bannerLb {
+    //   width: 1560px;
+    // }
   }
 }
 </style>
