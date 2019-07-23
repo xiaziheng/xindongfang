@@ -254,7 +254,7 @@ header {
     // -webkit-box-shadow: 0 0 6px #ccc;
     // box-shadow: 0 0 6px #ccc;
     cursor: pointer;
-    &:hover .aboutNote{
+    &:hover .aboutNote {
       transform: scale(1.1);
     }
     //   background: #000;
@@ -265,7 +265,7 @@ header {
       right: 0;
       top: 0;
       transition: 0.7s all ease;
-      
+
       img {
         width: 100%;
         height: 100%;
@@ -439,10 +439,17 @@ header {
     }
   }
   #about {
-    height: 620px;
+    height: 420px;
     width: 100%;
     border: 0.1px solid #fff;
     background-size: cover;
+    color: #fff;
+    span {
+      color: #fff;
+    }
+    p {
+      color: #fff;
+    }
   }
   .containerList {
     width: 100%;
@@ -566,7 +573,7 @@ header {
   .bannerLb {
     // width: 1000px;
     width: 100%;
-    height: 600px;
+    height: 420px;
     overflow: hidden;
     margin: 0 auto;
     // margin-top: 120px;
@@ -625,7 +632,8 @@ header {
       }
       img {
         width: 100%;
-        height: 600px;
+        max-width: 1920px;
+        height: 420px;
         // background:blue;
         background: #ccc;
         display: block;
@@ -896,7 +904,7 @@ nav ul li a:hover span {
     .container {
       width: 1090px;
     }
-     nav ul{
+    nav ul {
       width: 1090px;
     }
     // .bannerLb {
@@ -909,8 +917,17 @@ nav ul li a:hover span {
     .container {
       width: 1090px;
     }
-    nav ul{
+    nav ul {
       width: 1090px;
+    }
+    #about {
+       height: 618px;
+    }
+    .bannerLb{
+      height: 618px;
+      img{
+        height: 618px;
+      }
     }
     // .bannerLb {
     //   width: 1560px;
