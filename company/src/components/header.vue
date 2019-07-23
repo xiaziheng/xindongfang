@@ -921,14 +921,18 @@ nav ul li a:hover span {
       width: 1090px;
     }
     #about {
-       height: 618px;
-    }
-    .bannerLb{
       height: 618px;
-      img{
-        height: 618px;
+    }
+
+    .bannerLb {
+      height: 618px;
+      .bannerTop {
+        img {
+          height: 618px;
+        }
       }
     }
+
     // .bannerLb {
     //   width: 1560px;
     // }
