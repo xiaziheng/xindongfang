@@ -34,38 +34,32 @@
           </li>
         </ul>
       </nav>
-      <div class="banner">
-        <div class="conatinerTlt container" style=" margin-top: 130px;">
+      <div class="banner" id="top" name="top">
+        <div class="conatinerTlt container" style=" margin-top: 100px;">
           <p class="title">
-           {{$route.query.type==1? '产品':'业务'}}
+            {{PageInfo.Name}}
             <span class="blueFont">介绍</span>
           </p>
-        
-          <p class="English">PRODUCT DESRIPTIONC</p>
-            <span class="underLine"></span>
+          <p class="English">{{PageInfo.EnglishName}} DESRIPTIONC</p>
+          <span class="underLine"></span>
         </div>
       </div>
       <div class="note">
         <div class="container1">
           <div class="container" style="display: flex;">
-           
             <div class="left">
-              <h1>{{Details.ProductName}}</h1>
-              <div v-html="Details.ProductDetail"></div>
+              <h1 v-bind:class="{'name-fixed':FixedName}">{{Details.Name}}</h1>
+              <div v-html="Details.Detail"></div>
             </div>
-             <div class="right">
+            <div class="right"  >
               <h3>综合业务案例</h3>
               <ul>
-                <li v-for="(item,index) in service" :key="index">
-                  {{item.Name}}
-                </li>
+                <li v-for="(item,index) in service" :key="index">{{item.Name}}</li>
               </ul>
               <h3 style="margin-top:20px">产品介绍</h3>
               <img style="width:100%" :src="iphead+company.Cover.Path" alt />
               <ul>
-                <li v-for="(item,index) in product" :key="index">
-                  {{item.ProductName}}
-                </li>
+                <li v-for="(item,index) in product" :key="index">{{item.ProductName}}</li>
               </ul>
             </div>
           </div>
@@ -89,7 +83,7 @@ header {
   .conatinerTlt {
     // width: 100%;
     // height: 38px;
-     
+
     text-align: left;
     // background: rgba(138, 150, 163, 0.5);
     // text-align: left;
@@ -110,12 +104,12 @@ header {
     .English {
       font-weight: normal;
       font-size: 20px;
-        // margin-top: 8px;
+      // margin-top: 8px;
     }
     .underLine {
       // position: absolute;
       // bottom: -10px;
-      width: 88px;  
+      width: 88px;
       margin-top: 10px;
       display: block;
       // left: 0;
@@ -131,80 +125,77 @@ header {
   .banner {
     // position: fixed;
     width: 100%;
-    height: 300px;
+    height: 200px;
     top: 0;
     left: 0;
     border: 0.1px solid #fff;
-      background: rgb(242,242,242);
-    img {
-      height: 400px;
-      width: 100%;
-    
-    }
+    background: rgb(242, 242, 242);
+    // img {
+    //   height: 400px;
+    //   width: 100%;
+    // }
   }
   .note {
     // padding-top: 340px;
     position: relative;
     z-index: 10;
     width: 100%;
-    
   }
   .container1 {
     min-height: 800px;
     background: #fff;
-  box-shadow: 0 0 6px #ccc;
+    box-shadow: 0 0 6px #ccc;
     padding-top: 30px;
   }
   .container {
-    
     width: 1000px;
     margin: 0 auto;
     .left {
       text-align: left;
-       margin-right: 2%; 
-       width: 66%;
-       h1 {
+      margin-right: 2%;
+      width: 66%;
+      h1 {
         margin-bottom: 30px;
+        font-size: 24px;
       }
     }
     .right {
-
       width: 32%;
       box-shadow: 5px 4px 9px #ccc;
       border: 1px solid #ccc;
       margin-bottom: 30px;
-// border: 4px solid rgb(25, 151, 232);
+      // border: 4px solid rgb(25, 151, 232);
       // border-radius: 8px;
       min-height: 100px;
       padding: 10px;
       background: #fff;
       text-align: left;
-     img{
-       height: 150px;
-     }
-          font-size: 15px;
+      img {
+        height: 150px;
+      }
+      font-size: 15px;
       h3 {
         margin-bottom: 15px;
         font-size: 15px;
         // font-weight: normal;
         color: #1485ef;
         padding-bottom: 8px;
-        border-bottom: 1px dotted #1485ef
+        border-bottom: 1px dotted #1485ef;
       }
-     ul{
-            list-style-type: disc;
-            li{
-              list-style-type: disc;
-              margin-left: 18px;
-              font-size: 14px;
-              line-height: 30px;
-              cursor: pointer;
-              &:hover{
-                color: #1485ef;
-                text-decoration: underline;
-              }
-            }
-     }
+      ul {
+        list-style-type: disc;
+        li {
+          list-style-type: disc;
+          margin-left: 18px;
+          font-size: 14px;
+          line-height: 30px;
+          cursor: pointer;
+          &:hover {
+            color: #1485ef;
+            text-decoration: underline;
+          }
+        }
+      }
     }
   }
 
@@ -289,6 +280,27 @@ nav ul li a:hover span {
   -webkit-animation: anim-francisco 0.3s forwards;
   animation: anim-francisco 0.3s forwards;
 }
+
+.name-fixed {
+  position: fixed;
+  top: 80px;
+  width: 50%;
+  margin-left: -300px;
+  padding-left: 300px;
+  height: 80px;
+  line-height: 80px;
+  background-color: #fff;
+}
+.name-fixed::after {
+  content: " ";
+  width: 88px;
+  height: 3px;
+  background-color: #1485ef;
+  position: absolute;
+  top: 70px;
+  left: 300px;
+}
+ 
 // 导航动画
 @keyframes anim-francisco {
   50% {
@@ -329,9 +341,12 @@ nav ul li a:hover span {
   }
 }
 
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1300px) {
   header {
     .container {
+      width: 1090px;
+    }
+    nav ul {
       width: 1090px;
     }
     // .bannerLb {
@@ -342,6 +357,9 @@ nav ul li a:hover span {
 @media screen and (min-width: 1700px) {
   header {
     .container {
+      width: 1090px;
+    }
+    nav ul {
       width: 1090px;
     }
     // .bannerLb {

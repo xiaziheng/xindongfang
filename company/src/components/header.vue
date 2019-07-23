@@ -84,7 +84,7 @@
               <!-- </a> -->
             </li>
           </ul>
-          <div style="background:#f2f3f4;padding:60px 0 100px">
+          <div style="background:#f2f3f4;padding:1px 0 100px">
             <div class="conatinerTlt container" id="professional">
               <span class="title">
                 业务
@@ -120,7 +120,7 @@
             </div>
           </div>
           <div id="about" :style="'background-image:url('+iphead+company.Cover.Path+'); '">
-            <div class="conatinerTlt container" >
+            <div class="conatinerTlt container">
               <span class="title">关于我们</span>
               <span class="underLine"></span>
               <p class="English" style="margin-left:-35px;">ABOUT US</p>
@@ -220,8 +220,8 @@ header {
         position: absolute;
         bottom: -30px;
         font-weight: bold;
-        white-space :  nowrap;
-        transform:translateX(-50%);
+        white-space: nowrap;
+        transform: translateX(-50%);
         left: 50%;
       }
       &:hover {
@@ -249,15 +249,23 @@ header {
     overflow: hidden;
     text-align: center;
     position: relative;
-    margin-bottom: 100px;
+    margin-bottom: 80px;
+
+    // -webkit-box-shadow: 0 0 6px #ccc;
+    // box-shadow: 0 0 6px #ccc;
+    cursor: pointer;
+    &:hover .aboutNote{
+      transform: scale(1.1);
+    }
     //   background: #000;
     .aboutImg {
       width: 50%;
-      height: 400px;
+      height: 300px;
       position: absolute;
       right: 0;
       top: 0;
       transition: 0.7s all ease;
+      
       img {
         width: 100%;
         height: 100%;
@@ -265,22 +273,23 @@ header {
     }
     .aboutNote {
       width: 50%;
-      height: 400px;
+      height: 300px;
       position: absolute;
       left: 0;
       top: 0;
       background: #fff;
       transition: 0.7s all ease;
-      color: #ccc;
+      // color: #ccc;
       // display: flex;
       // justify-content: center;
       // align-items: center;
       text-align: left;
+
       .titleAbout {
         margin: 55px 55px 0 55px;
         font-size: 22px;
         padding-bottom: 10px;
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px dashed #ccc;
         color: #000;
       }
       .noteAbout {
@@ -289,14 +298,14 @@ header {
         overflow: hidden;
       }
     }
-    &:hover {
-      .aboutImg {
-        right: 50%;
-      }
-      .aboutNote {
-        left: 50%;
-      }
-    }
+    // &:hover {
+    //   .aboutImg {
+    //     right: 50%;
+    //   }
+    //   .aboutNote {
+    //     left: 50%;
+    //   }
+    // }
   }
   .containerList2 {
     width: 100%;
@@ -429,11 +438,11 @@ header {
       margin-left: -35px;
     }
   }
-  #about{
+  #about {
     height: 620px;
     width: 100%;
     border: 0.1px solid #fff;
-   background-size: cover;
+    background-size: cover;
   }
   .containerList {
     width: 100%;
@@ -454,7 +463,7 @@ header {
       margin-top: 10px;
 
       .hover {
-        transition: .5s all ease;
+        transition: 0.5s all ease;
         box-shadow: 0 0 6px #ccc;
         height: 100%;
         padding: 12px;
@@ -882,9 +891,12 @@ nav ul li a:hover span {
     transform: rotate(-5deg);
   }
 }
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1300px) {
   header {
     .container {
+      width: 1090px;
+    }
+     nav ul{
       width: 1090px;
     }
     // .bannerLb {
@@ -895,6 +907,9 @@ nav ul li a:hover span {
 @media screen and (min-width: 1700px) {
   header {
     .container {
+      width: 1090px;
+    }
+    nav ul{
       width: 1090px;
     }
     // .bannerLb {
