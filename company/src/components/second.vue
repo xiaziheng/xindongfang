@@ -170,6 +170,8 @@ header {
       padding: 10px;
       background: #fff;
       text-align: left;
+      position: relative;
+      z-index: 9999;
       img {
         height: 150px;
       }
