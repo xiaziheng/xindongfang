@@ -577,6 +577,7 @@ header {
     // width: 1000px;
     width: 100%;
     // height: 420px;
+    min-height: 300px;
     overflow: hidden;
     margin: 0 auto;
     // margin-top: 120px;

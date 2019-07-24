@@ -173,7 +173,7 @@ header {
       position: relative;
       z-index: 9999;
       img {
-        height: 150px;
+        // height: 150px;
       }
       font-size: 15px;
       h3 {
