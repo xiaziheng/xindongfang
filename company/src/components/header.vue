@@ -560,6 +560,9 @@ header {
         line-height: 80px;
         color: #fff;
         text-align: center;
+        &:first-child{
+           width: 250px;
+        }
       }
     }
     .nav-logo {
@@ -573,7 +576,7 @@ header {
   .bannerLb {
     // width: 1000px;
     width: 100%;
-    height: 420px;
+    // height: 420px;
     overflow: hidden;
     margin: 0 auto;
     // margin-top: 120px;
@@ -633,7 +636,7 @@ header {
       img {
         width: 100%;
         max-width: 1920px;
-        height: 420px;
+        // height: 420px;
         // background:blue;
         background: #ccc;
         display: block;

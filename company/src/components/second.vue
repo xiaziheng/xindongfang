@@ -224,6 +224,9 @@ header {
         line-height: 80px;
         color: #fff;
         text-align: center;
+         &:first-child{
+           width: 250px;
+        }
       }
     }
     .nav-logo {
