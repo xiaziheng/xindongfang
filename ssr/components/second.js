@@ -108,8 +108,14 @@ export default {
             this.$router.push({ path: "/", query: { id: id } });
         },
         openSecond(id, type) {
-            this.$router.push({ path: "/second", query: { id: id, type: type } });
-            window.location.reload();
+            // this.$router.push({ path: "/second", query: { id: id, type: type } });
+            let reg = /id=(.*?)&(type=\d+)/;
+            let href = window.location.href;
+            if (reg.test(href)) {
+                window.location.href = href
+                    .replace(RegExp.$1, id)
+                    .replace(RegExp.$2, "type=" + type);
+            }
         },
         getList() {
             this.$axios.get("/api/home1/index").then(res => {
