@@ -5,7 +5,7 @@
         <li>
           <div class="title">联系我们</div>
           <div class="list">地址：{{footercode.CompanyAddr}}</div>
-          <div class="list">邮编：{{footercode.CompanyAddr}}</div>
+          <div class="list">邮编：{{footercode.CompanyPostCode}}</div>
           <div class="list">邮件：{{footercode.CompanyMailbox}}</div>
         </li>
         <li>
