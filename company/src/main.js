@@ -7,7 +7,7 @@ import { HTTP } from './util/axios';
 // import 'element-ui/lib/theme-chalk/index.css';
 // Vue.use(ElementUI)
 Vue.prototype.$http = HTTP
-Vue.prototype.iphead = 'http://39.97.242.38'//http://39.97.242.38 测试 http://106.12.9.12
+Vue.prototype.iphead = 'http://www.deresen.com'//http://39.97.242.38 测试 http://106.12.9.12
 Vue.config.productionTip = false
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 import 'swiper/dist/css/swiper.css'
