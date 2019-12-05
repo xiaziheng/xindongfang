@@ -1,6 +1,6 @@
 import axios from 'axios'
 const envConfig = {
-  production: 'http://106.12.9.12',
+  production: 'http://www.deresen.com',
 }
 export const baseURL = envConfig.production
 let HTTP = axios.create({

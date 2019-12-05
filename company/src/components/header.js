@@ -109,15 +109,18 @@ export default {
             }
         },
         openSecond(id,type){
-            this.$router.push({path:'/second',query:{id:id,type:type}})
+            window.location.href='/second.html#/?id='+id+'&type='+type;
+            // this.$router.push({path:'/second',query:{id:id,type:type}})
         },
         goTop() {
             this.goScroll('home');
-            this.$router.push({path:'/',query:{}})
+            window.location.href='/'
+            // this.$router.push({path:'/',query:{}})
         },
         goScroll(id) {
             var docHeight;
-            this.$router.push({path:'/',query:{id:id}})
+            window.location.href='/'
+            // this.$router.push({path:'/',query:{id:id}})
             if (id == 'home') {
                 docHeight = 0;
             } else {
