@@ -76,8 +76,8 @@
                   </a>
                 </div>
                 <div class="fr">
-                  <p class="frF1">{{item.ProductName}}</p>
-                  <div class="frfonts" v-html="item.ProductIntro"></div>
+                  <p class="frF1">型号：{{item.ProductCode}}</p>
+                  <div class="frfonts" v-html="item.ProductName"></div>
                 </div>
               </div>
 
@@ -121,9 +121,9 @@
           </div>
           <div id="about" :style="'background-image:url('+iphead+company.Cover.Path+'); '">
             <div class="conatinerTlt container">
-              <span class="title">关于我们</span>
+              <span class="title">公司介绍</span>
               <span class="underLine"></span>
-              <p class="English" style="margin-left:-35px;">ABOUT US</p>
+              <p class="English" style="margin-left:-35px;">Company Introduction</p>
             </div>
             <div class="containerListAbout container">
               <div class="aboutNote1" style="margin-top:70px;">
@@ -459,7 +459,7 @@ header {
     //   background: #fff;
     display: flex;
     justify-content: space-between;
-
+    flex-wrap: wrap;
     li {
       width: 31%;
       height: 376px;
@@ -507,8 +507,8 @@ header {
         .frF1 {
           width: 100%;
           // height: 40px;
-          font-size: 20px;
-          color: #000;
+          font-size: 24px;
+          color: #6834e6;
           text-align: center;
           line-height: 40px;
           margin-top: 10px;
@@ -516,10 +516,10 @@ header {
         }
         .frfonts {
           width: 100%;
-          font-size: 13px;
-          color: #666;
+          font-size: 20x;
+          color: #6834e6;
           line-height: 20px;
-          text-align: left;
+          text-align: center;
           float: left;
           max-height: 100px;
           overflow: hidden;
