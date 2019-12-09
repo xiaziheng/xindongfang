@@ -119,14 +119,15 @@ export default {
         },
         goScroll(id) {
             var docHeight;
-            window.location.href=this.goHome+'?id='+id;
             // this.$router.push({path:'/',query:{id:id}})
             if (id == 'home') {
                 docHeight = 0;
             } else {
                 docHeight = document.getElementById(id).offsetTop  //+560 ;
             }
-
+            // setTimeout(()=>{
+            //     window.location.hash=id;
+            // },300)
             this.$refs['vs'].scrollTo(
                 {
                     y: docHeight
