@@ -114,7 +114,7 @@ export default {
         },
         goTop() {
             this.goScroll('home');
-            window.location.href=this.goHome;
+            // window.location.href=this.goHome;
             // this.$router.push({path:'/',query:{}})
         },
         goScroll(id) {
