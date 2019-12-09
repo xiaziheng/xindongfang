@@ -106,11 +106,14 @@ export default {
               );
         },
         goScroll(id) {
-            this.$router.push({ path: '/', query: { id: id } })
+            window.location.href=this.goHome+'?id='+id;
+            // this.$router.push({ path: '/', query: { id: id } })
         },
         openSecond(id,type){
-            this.$router.push({path:'/second',query:{id:id,type:type}});
+            window.location.href=this.goSecond+'?id='+id+'&type='+type;
             window.location.reload()
+            // this.$router.push({path:'/second',query:{id:id,type:type}});
+            // window.location.reload()
         },
         getList() {
             this.$http.get('/api/home1/index').then((res) => {
