@@ -109,7 +109,7 @@ export default {
             }
         },
         openSecond(id,type){
-            window.location.href='/second.html#/?id='+id+'&type='+type;
+            window.location.href=this.goSecond+'?id='+id+'&type='+type;
             // this.$router.push({path:'/second',query:{id:id,type:type}})
         },
         goTop() {

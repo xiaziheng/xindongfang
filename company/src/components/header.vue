@@ -24,7 +24,7 @@
           </li>
           <li @click="goScroll('about')">
             <a href="javascript:;">
-              <span>关于我们</span>
+              <span>公司介绍</span>
             </a>
           </li>
           <li @click="goScroll('contact')">
