@@ -127,7 +127,7 @@
             </div>
             <div class="containerListAbout container">
               <div class="aboutNote1" style="margin-top:70px;">
-                <p v-html="company.CompanyIdea"></p>
+                <div v-html="company.CompanyIdea"></div>
               </div>
             </div>
           </div>
