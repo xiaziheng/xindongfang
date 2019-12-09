@@ -114,13 +114,13 @@ export default {
         },
         goTop() {
             this.goScroll('home');
-            window.location.href='/'
+            window.location.href=this.goHome;
             // this.$router.push({path:'/',query:{}})
         },
         goScroll(id) {
             var docHeight;
-            // window.location.href==this.goHome+'?id='+id;
-            this.$router.push({path:'/',query:{id:id}})
+            window.location.href=this.goHome+'?id='+id;
+            // this.$router.push({path:'/',query:{id:id}})
             if (id == 'home') {
                 docHeight = 0;
             } else {
