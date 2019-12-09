@@ -462,7 +462,7 @@ header {
     flex-wrap: wrap;
     li {
       width: 31%;
-      height: 376px;
+      height: auto;
       margin-bottom: 90px;
       // height: 240px;
       // overflow: hidden;
@@ -486,7 +486,7 @@ header {
         a {
           display: block;
           width: 100%;
-          // height: 200px;
+          min-height: 210px;
           // overflow: hidden;
           // margin-left: 30px;
           img {
