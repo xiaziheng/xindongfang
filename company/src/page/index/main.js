@@ -10,6 +10,7 @@ import { config } from '../../config';
 Vue.prototype.$http = HTTP
 Vue.prototype.iphead = config.iphead;
 Vue.prototype.goSecond =  config.goSecond;
+Vue.prototype.goHome =  config.goHome;
 Vue.config.productionTip = false
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 import 'swiper/dist/css/swiper.css'

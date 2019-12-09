@@ -119,8 +119,8 @@ export default {
         },
         goScroll(id) {
             var docHeight;
-            window.location.href='/'
-            // this.$router.push({path:'/',query:{id:id}})
+            // window.location.href==this.goHome+'?id='+id;
+            this.$router.push({path:'/',query:{id:id}})
             if (id == 'home') {
                 docHeight = 0;
             } else {
