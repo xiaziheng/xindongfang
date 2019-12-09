@@ -83,6 +83,7 @@
 
               <!-- </a> -->
             </li>
+            <li class="clearfloat" v-if="product.length%3==2"></li>
           </ul>
           <div style="background:#f2f3f4;padding:1px 0 100px">
             <div class="conatinerTlt container" id="professional">

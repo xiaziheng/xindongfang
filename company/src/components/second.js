@@ -1,4 +1,3 @@
-
 import vuescroll from 'vuescroll';
 import silidefix from './silidefix';
 import footerPage from './footer';
@@ -37,6 +36,7 @@ export default {
                 Name: '产品',
                 EnglishName: 'PRODUCT'
             },
+            type: 0,
         }
 
 
@@ -56,12 +56,13 @@ export default {
     created() {
         // console.log(this.$route.query)
         this.initPage();
-        this.getDetail(() => { });
+        this.getDetail(() => {});
         this.getList()
     },
 
     methods: {
         initPage() {
+            this.type = this.$route.query.type;
             let type = this.$route.query.type;
             type = type + '';
             switch (type) {
@@ -98,22 +99,21 @@ export default {
         },
         goTop() {
             // this.goScroll('home')
-            this.$refs['vs'].scrollTo(
-                {
-                  y: 0
+            this.$refs['vs'].scrollTo({
+                    y: 0
                 },
                 300
-              );
+            );
         },
         goScroll(id) {
-            window.location.href=this.goHome+'?id='+id;
+            window.location.href = this.goHome + '?id=' + id;
             // this.$router.push({ path: '/', query: { id: id } })
         },
-        openSecond(id,type){
-            window.location.href=this.goSecond+'?id='+id+'&type='+type;
+        openSecond(id, type) {
+            window.location.href = this.goSecond + '?id=' + id + '&type=' + type;
             window.location.reload()
-            // this.$router.push({path:'/second',query:{id:id,type:type}});
-            // window.location.reload()
+                // this.$router.push({path:'/second',query:{id:id,type:type}});
+                // window.location.reload()
         },
         getList() {
             this.$http.get('/api/home1/index').then((res) => {
@@ -127,7 +127,8 @@ export default {
         getDetail(cb) {
             let query = this.$route.query;
             let params = {
-                id: query.id, type: query.type
+                id: query.id,
+                type: query.type
             }
             this.$http.get('/api/home1/Details', { params }).then((res) => {
                 this.Details = this.convertModel(res.data.Data, query.type);
@@ -140,19 +141,19 @@ export default {
             type = type + '';
             if (data) {
                 switch (type) {
-                    case '1'://产品
+                    case '1': //产品
                         model.Name = data.ProductName
                         model.Detail = data.ProductDetail;
                         model.Intro = data.ProductIntro;
                         model.Cover = data.Cover;
                         break;
-                    case '2'://服务
+                    case '2': //服务
                         model.Name = data.Name
                         model.Detail = data.CaseDetail;
                         model.Intro = data.CaseIntro;
                         model.Cover = data.Cover;
                         break;
-                    case '3'://客户
+                    case '3': //客户
                         model.Name = data.Name
                         model.Detail = data.CustomerIntro;
                         model.Intro = data.CustomerIntro;

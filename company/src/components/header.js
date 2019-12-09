@@ -1,4 +1,3 @@
-
 import vuescroll from 'vuescroll';
 import MapNote from './map'
 import silidefix from './silidefix';
@@ -14,11 +13,11 @@ export default {
                 // notNextTick: true,
                 // observer:true,//修改swiper自己或子元素时，自动初始化swiper
                 // observeParents:true,//修改swiper的父元素时，自动初始化swiper
-                init:false,
+                init: false,
                 loop: true,
                 // width : 1280,
                 effect: 'fade',
-                grabCursor : true,
+                grabCursor: true,
                 navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
@@ -78,39 +77,39 @@ export default {
         }
     },
     updated() {
-        if (this.lunbo.length>1) {
-        //   console.log(this.swiper);
-          this.swiper.init();
+        if (this.lunbo.length > 1) {
+            //   console.log(this.swiper);
+            this.swiper.init();
         }
-      },
+    },
     created() {
         this.getList();
-       
+
     },
     mounted() {
         let width = document.documentElement.clientWidth;
-          document.querySelector('.bannerLb').style.width = width+'px';
-          let query=this.$route.query;
-          if(query.id){
-              setTimeout(() => {
+        document.querySelector('.bannerLb').style.width = width + 'px';
+        let query = this.$route.query;
+        if (query.id) {
+            setTimeout(() => {
                 this.goScroll(query.id)
-              }, 300);
-             
-          }
+            }, 300);
+
+        }
     },
     methods: {
         handleScroll(vertical) {
             // console.log(vertical, horizontal, nativeEvent)
             let height = vertical.scrollTop;
-            if(height>320){
+            if (height > 320) {
                 this.background = 'background:#1997e8';
-            }else{
+            } else {
                 this.background = 'background:none';
             }
         },
-        openSecond(id,type){
-            window.location.href=this.goSecond+'?id='+id+'&type='+type;
-            // this.$router.push({path:'/second',query:{id:id,type:type}})
+        openSecond(id, type) {
+            window.location.href = this.goSecond + '?id=' + id + '&type=' + type;
+            // this.$router.push({ path: this.goSecond, query: { id: id, type: type } })
         },
         goTop() {
             this.goScroll('home');
@@ -123,13 +122,12 @@ export default {
             if (id == 'home') {
                 docHeight = 0;
             } else {
-                docHeight = document.getElementById(id).offsetTop  //+560 ;
+                docHeight = document.getElementById(id).offsetTop //+560 ;
             }
             // setTimeout(()=>{
             //     window.location.hash=id;
             // },300)
-            this.$refs['vs'].scrollTo(
-                {
+            this.$refs['vs'].scrollTo({
                     y: docHeight
                 },
                 300,

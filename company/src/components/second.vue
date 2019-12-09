@@ -53,11 +53,13 @@
             </div>
             <div class="right"  >
               <h3>综合业务案例</h3>
+               <img style="width:100%" :src="iphead+Details.Cover.Path" alt  v-if="type==2"/>
               <ul>
                 <li v-for="(item,index) in service" :key="index" @click="openSecond(item.ID,2)">{{item.Name}}</li>
               </ul>
               <h3 style="margin-top:20px">产品介绍</h3>
-              <img style="width:100%" :src="iphead+Details.Cover.Path" alt />
+              
+              <img style="width:100%" :src="iphead+Details.Cover.Path" alt  v-if="type==1"/>
               <ul>
                 <li v-for="(item,index) in product" :key="index" @click="openSecond(item.ID,1)">{{item.ProductName}}</li>
               </ul>
