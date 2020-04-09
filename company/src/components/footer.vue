@@ -11,12 +11,14 @@
         <li>
           <div class="title">客服热线</div>
           <div
-            class="title"
-            style="font-size:16px; font-weight:normal; color:#c8c9ce;"
-          >{{footercode.CompanyPhone}}</div>
+            v-for="(item,index) in footercode.CompanyPhone.split(',')"
+            :key="index"
+            class="list"
+            style="color:#c8c9ce;padding-bottom:10px"
+          >{{item}}</div>
         </li>
         <li>
-          <img :src="iphead+footercode.QRCode.Path" alt>
+          <img :src="iphead+footercode.QRCode.Path" alt />
         </li>
       </ul>
     </div>
@@ -47,8 +49,8 @@ export default {
   height: 280px;
   background: rgb(38, 39, 40);
   width: 100%;
-   position: relative;
-      z-index: 10;
+  position: relative;
+  z-index: 10;
   ul {
     width: 800px;
     display: flex;
