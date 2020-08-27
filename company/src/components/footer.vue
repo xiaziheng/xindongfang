@@ -11,7 +11,7 @@
         <li>
           <div class="title">客服热线</div>
           <div
-            v-for="(item,index) in footercode.CompanyPhone.split(',')"
+            v-for="(item,index) in (footercode.CompanyPhone||'').split(',')"
             :key="index"
             class="list"
             style="color:#c8c9ce;padding-bottom:10px"
@@ -23,8 +23,8 @@
       </ul>
     </div>
     <div class="footerUnder">
-      <span>Copyright 2019 deruixin.com.cn, 粤ICP备09182051号 Powered by DRX</span>
-      <span style="margin-left:50px">法律声明 | 隐私条款</span>
+      <span>Copyright 2019 drehoned.com, 陕ICP备20012154号-1 Powered by drehoned</span>
+      <span style="margin-left:50px;display:none;">法律声明 | 隐私条款</span>
     </div>
   </div>
 </template>
@@ -33,15 +33,15 @@
 export default {
   data() {
     return {
-      gotop: false
+      gotop: false,
     };
   },
   methods: {
     toTop() {
       this.$emit("goTop", !this.gotop);
-    }
+    },
   },
-  props: ["footercode"]
+  props: ["footercode"],
 };
 </script>
 <style lang="less" scoped>

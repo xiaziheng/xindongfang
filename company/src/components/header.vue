@@ -5,7 +5,7 @@
         <ul>
           <li>
             <!-- <img class="nav-logo" src="../assets/logo.png" alt>  -->
-            北京德瑞芯科技有限公司
+            陕西德瑞慧达科技有限公司
           </li>
           <li @click="goScroll('home')">
             <a href="javascript:;">
@@ -72,7 +72,7 @@
               <div class="hover clearfloat">
                 <div class="fl">
                   <a href="javascript:;">
-                    <img :src="iphead+item.Cover.Path" alt />
+                    <img :src="iphead+item.Cover.Path" :alt="item.ProductName" />
                   </a>
                 </div>
                 <div class="fr">
@@ -116,7 +116,7 @@
                 <p class="noteAbout" v-html="item.CaseIntro"></p>
               </div>
               <div class="aboutImg">
-                <img :src="iphead+item.Cover.Path" alt />
+                <img :src="iphead+item.Cover.Path" :alt="item.Name" />
               </div>
             </div>
           </div>
@@ -148,7 +148,7 @@
             </li>
             <li>
               <i class="icon el-icon-phone-outline"></i>
-              <div>电话：{{company.CompanyPhone || ''}}</div>
+              <div>电话：{{(company.CompanyPhone || '').split(',')[0]}}</div>
             </li>
           </ul>
         </div>
@@ -561,8 +561,8 @@ header {
         line-height: 80px;
         color: #fff;
         text-align: center;
-        &:first-child{
-           width: 250px;
+        &:first-child {
+          width: 250px;
         }
       }
     }

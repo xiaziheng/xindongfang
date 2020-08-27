@@ -5,7 +5,7 @@
         <ul>
           <li @click="goScroll('home')">
             <!-- <img class="nav-logo" src="../assets/logo.png" alt>  -->
-            北京德瑞芯科技有限公司
+            陕西德瑞慧达科技有限公司
           </li>
           <li @click="goScroll('home')">
             <a href="javascript:;">
@@ -51,17 +51,21 @@
               <h1 v-bind:class="{'name-fixed':FixedName}">{{Details.Name}}</h1>
               <div v-html="Details.Detail"></div>
             </div>
-            <div class="right"  >
+            <div class="right">
               <h3>综合业务案例</h3>
-               <img style="width:100%" :src="iphead+Details.Cover.Path" alt  v-if="type==2"/>
+              <img style="width:100%" :src="iphead+Details.Cover.Path" alt v-if="type==2" />
               <ul>
-                <li v-for="(item,index) in service" :key="index" @click="openSecond(item.ID,2)">{{item.Name}}</li>
+                <li v-for="(item,index) in service" :key="index">
+                  <a :href="getSecond(item.ID,2)">{{item.Name}}</a>
+                </li>
               </ul>
               <h3 style="margin-top:20px">产品介绍</h3>
-              
-              <img style="width:100%" :src="iphead+Details.Cover.Path" alt  v-if="type==1"/>
+
+              <img style="width:100%" :src="iphead+Details.Cover.Path" alt v-if="type==1" />
               <ul>
-                <li v-for="(item,index) in product" :key="index" @click="openSecond(item.ID,1)">{{item.ProductName}}</li>
+                <li v-for="(item,index) in product" :key="index">
+                  <a :href="getSecond(item.ID,1)">{{item.ProductName}}</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -226,8 +230,8 @@ header {
         line-height: 80px;
         color: #fff;
         text-align: center;
-         &:first-child{
-           width: 250px;
+        &:first-child {
+          width: 250px;
         }
       }
     }
@@ -251,9 +255,12 @@ nav ul li:hover {
 }
 nav ul li a {
   color: #fff;
-  text-decoration: none;
+
   display: block;
   // padding:10px 0;
+}
+a {
+  text-decoration: none;
 }
 nav ul li span {
   display: block;
@@ -307,7 +314,7 @@ nav ul li a:hover span {
   top: 70px;
   left: 300px;
 }
- 
+
 // 导航动画
 @keyframes anim-francisco {
   50% {
